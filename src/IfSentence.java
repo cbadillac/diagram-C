@@ -1,8 +1,14 @@
+import java.awt.Graphics;
+
 
 public class IfSentence extends NodeDC {
-
+	private static int id=0;
+	private IfSentenceView view;
+	
 	public IfSentence() {
-		// TODO Auto-generated constructor stub
+		super(id++);
+		view = new IfSentenceView();
+		System.out.print("If Created :) id:" + id + "\n");		
 	}
 
 	@Override
@@ -16,5 +22,13 @@ public class IfSentence extends NodeDC {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	public IfSentenceView getView(){
+		return view;
+	}
+	
+	public void updateView(Graphics g){
+		view.updateView(g);
+	}
+	
 }
