@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Frame;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -18,12 +19,18 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
 import java.awt.FlowLayout;
+
 import javax.swing.SwingConstants;
+
 import java.awt.Font;
+
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.ImageIcon;
+import java.awt.Scrollbar;
 
 
 public class DiagramC_GUI extends JFrame {
@@ -70,9 +77,39 @@ public class DiagramC_GUI extends JFrame {
 		});
 		
 		
-		btnIf.setIcon(new ImageIcon("C:\\Users\\Crist\u00F3bal\\workspace2\\diagram-C\\icons\\if_sentence2.png"));
+		btnIf.setIcon(new ImageIcon(DiagramC_GUI.class.getResource("/if_sentence2.png")));
 		btnIf.setBounds(10, 34, 79, 37);
 		leftPanel.add(btnIf);
+		
+		
+		
+		
+		JButton btnVar = new JButton("Var");
+		btnVar.setIcon(new ImageIcon(DiagramC_GUI.class.getResource("/var_sentence.png")));
+		btnVar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VarSentence varSentence = new VarSentence();
+				diagram.addNodes(varSentence);
+				diagram.addViewNodes(varSentence.getView());
+				rightPanel.repaintView();
+			}
+		});
+		
+		btnVar.setBounds(10, 82, 79, 37);
+		leftPanel.add(btnVar);
+		
+		JButton btnCCode = new JButton("Code");
+		btnCCode.setIcon(new ImageIcon(DiagramC_GUI.class.getResource("/cText.png")));
+		btnCCode.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CText cText = new CText();
+				diagram.addNodes(cText);
+				diagram.addViewNodes(cText.getView());
+				rightPanel.repaintView();
+			}
+		});
+		btnCCode.setBounds(10, 131, 79, 37);
+		leftPanel.add(btnCCode);
 		
 		splitPane.setDividerLocation(100);
 		
@@ -103,5 +140,4 @@ public class DiagramC_GUI extends JFrame {
 		
 		
 	}
-	
 }

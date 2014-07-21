@@ -48,19 +48,6 @@ public class RightPanel extends JPanel {
 	public void paintComponent(Graphics g){
 		Graphics2D g2 = (Graphics2D) g;
 		super.paintComponent(g);
-  
-       
-//        AffineTransform old = g2d.getTransform();
-//        g2.rotate(Math.toRadians(45), 225, 225);
-//        //draw shape/image (will be rotated)
-//        Rectangle2D rectangle = new Rectangle2D.Double(200, 200, 50, 50);
-//        g2.draw(rectangle);
-//        
-//        g2d.setTransform(old);
-//        Rectangle2D rectangle2 = new Rectangle2D.Double(20,80,50,50);
-//        //things you draw after here will not be rotated 
-//        g2d.setColor(Color.red);
-//        g2.draw(rectangle2);
 		
 		
         ArrayList<NodeDCView> elements = diagram.getViewNodes();

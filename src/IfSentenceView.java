@@ -11,9 +11,11 @@ public class IfSentenceView extends NodeDCView {
 	private double yPosition;
 	private static double HEIGHT    = 50;
 	private static double WIDTH     = 50;
+	IfSentence node;
 	
-	public IfSentenceView() {
+	public IfSentenceView(IfSentence node) {
 		
+		this.node = node;
 		xPosition = 50;
 		yPosition = 50;
 		rectangle = new Rectangle2D.Double(xPosition, yPosition, HEIGHT, WIDTH);
@@ -45,11 +47,13 @@ public class IfSentenceView extends NodeDCView {
         //draw shape/image (will be rotated)
         g2.fill(rectangle);
         g2.setTransform(old);
-        
-        
-       
+ 
 	}
-
+	
+	public IfSentence getNode(){
+		return node;
+	}
+	
 	@Override
 	boolean imHere(double x, double y) {
 		if(x<rectangle.getMaxX() && x>rectangle.getMinX() && y>rectangle.getMinY() && y<rectangle.getMaxY())
@@ -57,5 +61,6 @@ public class IfSentenceView extends NodeDCView {
 		else
 			return false;
 	}
+
 
 }

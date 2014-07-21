@@ -4,10 +4,12 @@ import java.awt.Graphics;
 public class IfSentence extends NodeDC {
 	private static int id=0;
 	private IfSentenceView view;
+	private String text;
 	
 	public IfSentence() {
 		super(id++);
-		view = new IfSentenceView();
+		view = new IfSentenceView(this);
+		text = new String();
 		System.out.print("If Created :) id:" + id + "\n");		
 	}
 
@@ -31,4 +33,11 @@ public class IfSentence extends NodeDC {
 		view.updateView(g);
 	}
 	
+	public String getText(){
+		return text;
+	}
+	
+	public void setText(String txt){
+		this.text = txt;
+	}
 }
