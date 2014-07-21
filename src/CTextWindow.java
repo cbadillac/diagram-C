@@ -48,6 +48,7 @@ public class CTextWindow extends JFrame {
 		
 			
 		final JTextArea textArea = new JTextArea();
+		textArea.setTabSize(2);
 		textArea.setRows(8);
 		textArea.setFont(new Font("Arial", Font.PLAIN, 15));
 		if (cText.getText() != null) {

@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Frame;
 
@@ -7,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.MenuListener;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -30,6 +32,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.ImageIcon;
+
+import sun.org.mozilla.javascript.internal.annotations.JSConstructor;
+
 import java.awt.Scrollbar;
 
 
@@ -45,13 +50,14 @@ public class DiagramC_GUI extends JFrame {
 		setTitle("Diagram-C");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setExtendedState(this.getExtendedState() | this.MAXIMIZED_BOTH);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 600, 509);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		JLabel label1 = new JLabel("Components");
 		label1.setHorizontalAlignment(SwingConstants.CENTER);
 		label1.setBounds(10, 9, 79, 14);
-		JLabel label2 = new JLabel("Flow");
-		label2.setVerticalAlignment(SwingConstants.TOP);
+//		JLabel label2 = new JLabel("Flow");
+//		label2.setVerticalAlignment(SwingConstants.TOP);
+//		label2.setHorizontalAlignment(SwingConstants.LEFT);
 		
 		LeftPanel leftPanel = new LeftPanel();
 		rightPanel = new RightPanel(diagram);
@@ -60,9 +66,14 @@ public class DiagramC_GUI extends JFrame {
 		leftPanel.setLayout(null);
 		
 		leftPanel.add(label1);
-		rightPanel.add(label2);
+
 		
-		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, rightPanel);
+		rightPanel.setPreferredSize(new Dimension(100, 100));
+		
+		final JScrollPane scroll = new JScrollPane(rightPanel);
+		
+		
+		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, scroll);
 		
 		JButton btnIf = new JButton("If");
 		btnIf.addActionListener(new ActionListener() {
@@ -127,6 +138,10 @@ public class DiagramC_GUI extends JFrame {
 		JMenuItem mntmExit = new JMenuItem("Exit");
 		mntmExit.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		mntmExit.addActionListener(menuListener);
+		
+		JMenuItem mntmCreateCCode = new JMenuItem("Create C Code");
+		mntmCreateCCode.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		mnFile.add(mntmCreateCCode);
 		mnFile.add(mntmExit);
 		
 		JMenu mnHelp = new JMenu("Help");
