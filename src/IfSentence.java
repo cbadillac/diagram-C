@@ -4,8 +4,11 @@ import java.util.ArrayList;
 
 public class IfSentence extends NodeDC {
 	private static int id=0;
+	
 	private IfSentenceView view;
+	
 	private String text;
+	
 	private ArrayList<NodeDC> ifConditions;
 	private ArrayList<NodeDC> elseConditions;
 
@@ -15,7 +18,8 @@ public class IfSentence extends NodeDC {
 		view = new IfSentenceView(this);
 		text = new String();
 		System.out.print("If Created :) id:" + id + "\n");
-		ifConditions = new ArrayList<NodeDC>();
+		
+		ifConditions   = new ArrayList<NodeDC>();
 		elseConditions = new ArrayList<NodeDC>();
 		
 	}
@@ -25,6 +29,7 @@ public class IfSentence extends NodeDC {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 
 	public IfSentenceView getView(){
 		return view;
