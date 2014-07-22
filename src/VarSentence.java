@@ -28,12 +28,6 @@ public class VarSentence extends NodeDC {
 	}
 
 	@Override
-	String getType() {
-		// TODO Auto-generated method stub
-		return typeOne;
-	}
-
-	@Override
 	void updateView(Graphics g) {
 		// TODO Auto-generated method stub
 		view.updateView(g);

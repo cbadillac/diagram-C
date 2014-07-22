@@ -26,12 +26,6 @@ public class IfSentence extends NodeDC {
 		return null;
 	}
 
-	@Override
-	String getType() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	public IfSentenceView getView(){
 		return view;
 	}
