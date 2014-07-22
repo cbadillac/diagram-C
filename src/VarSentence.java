@@ -3,12 +3,15 @@ import java.awt.Graphics;
 
 public class VarSentence extends NodeDC {
 	
-	private static int id = 0;	
+	private static int id = 0;
+	
 	private VarSentenceView view;
+	
 	private String varName;
 	private String varValue;
 	private String varType;
 
+	
 	public VarSentence() {
 		super(id++);
 		view     = new VarSentenceView(this);
@@ -16,11 +19,8 @@ public class VarSentence extends NodeDC {
 		setVarValue(new String()); 
 		// TODO Auto-generated constructor stub
 	}
-	
-	public VarSentenceView getView(){
-		return view;
-	}
 
+	
 	@Override
 	String toC() {
 		// TODO Auto-generated method stub
@@ -28,16 +28,15 @@ public class VarSentence extends NodeDC {
 	}
 
 	@Override
-	String getType() {
-		// TODO Auto-generated method stub
-		return typeOne;
-	}
-
-	@Override
 	void updateView(Graphics g) {
 		// TODO Auto-generated method stub
 		view.updateView(g);
 
+	}
+	
+	
+	public VarSentenceView getView(){
+		return view;
 	}
 
 	public String getVarName() {
