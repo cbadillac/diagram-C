@@ -4,28 +4,29 @@ import java.util.ArrayList;
 
 public abstract  class NodeDC {
 	
-	static String typeOne   = "typeOne";
-	static String typeTwo   = "typeTwo";
-	static String typeThree = "typeThree";
-	private ArrayList<NodeDC> root = null;
+	//static String typeOne   = "typeOne";
+	//static String typeTwo   = "typeTwo";
+	//static String typeThree = "typeThree";
+	// we'd use rather instanceof
+	private NodeDC root = null;
 	
 	private final int myId; /* to identify each element within its category */
-	   
-	   protected NodeDC( int id){
-	      myId = id;
-	   }
-	   protected int getId() {
-	      return myId;
-	   }
-			
+	
+	protected NodeDC( int id){
+		myId = id;
+	}
+	
 	abstract String toC();
-	abstract String getType();
 	abstract void updateView(Graphics g);
 	
-	public ArrayList<NodeDC> getRoot() {
+	protected int getId() {
+		return myId;
+	}
+	
+	public NodeDC getRoot() {
 		return root;
 	}
-	public void setRoot(ArrayList<NodeDC> root) {
+	public void setRoot(NodeDC root) {
 		this.root = root;
 	}
 	
