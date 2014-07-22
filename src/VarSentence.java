@@ -63,4 +63,11 @@ public class VarSentence extends NodeDC {
 		this.varType = varType;
 	}
 
+
+	@Override
+	String getType() {
+		// TODO Auto-generated method stub
+		return NodeDC.typeOne;
+	}
+
 }
