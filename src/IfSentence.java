@@ -6,8 +6,7 @@ public class IfSentence extends NodeDC {
 	private static int id=0;
 	private IfSentenceView view;
 	private String text;
-	private ArrayList<NodeDC> ifConditions;
-	private ArrayList<NodeDC> elseConditions;
+
 
 	
 	public IfSentence() {
@@ -15,8 +14,7 @@ public class IfSentence extends NodeDC {
 		view = new IfSentenceView(this);
 		text = new String();
 		System.out.print("If Created :) id:" + id + "\n");
-		ifConditions = new ArrayList<NodeDC>();
-		elseConditions = new ArrayList<NodeDC>();
+
 		
 	}
 
@@ -29,7 +27,7 @@ public class IfSentence extends NodeDC {
 	@Override
 	String getType() {
 		// TODO Auto-generated method stub
-		return null;
+		return typeThree;
 	}
 	
 	public IfSentenceView getView(){
@@ -48,19 +46,4 @@ public class IfSentence extends NodeDC {
 		this.text = txt;
 	}
 
-	public ArrayList<NodeDC> getIfConditions() {
-		return ifConditions;
-	}
-
-	public void setIfConditions(ArrayList<NodeDC> ifConditions) {
-		this.ifConditions = ifConditions;
-	}
-
-	public ArrayList<NodeDC> getElseConditions() {
-		return elseConditions;
-	}
-
-	public void setElseConditions(ArrayList<NodeDC> elseConditions) {
-		this.elseConditions = elseConditions;
-	}
 }

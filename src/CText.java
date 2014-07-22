@@ -21,7 +21,7 @@ public class CText extends NodeDC {
 	@Override
 	String getType() {
 		// TODO Auto-generated method stub
-		return null;
+		return typeOne;
 	}
 
 	@Override

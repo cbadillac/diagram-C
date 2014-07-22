@@ -14,7 +14,7 @@ public class RightPanel extends JPanel {
 
 	private Diagram diagram;
 	private ArrayList<NodeDCView> elements;
-	public  Line2D.Double X_AXIS;  // lines to draw my world axes (singular axis, plural axes).
+	private ArrayList<Line> lines;
 	
 	
 	/**
@@ -25,11 +25,12 @@ public class RightPanel extends JPanel {
 	public RightPanel(Diagram diagram) {
 		super();
 		this.diagram = diagram;
-		X_AXIS = new Line2D.Double(5,5,5,5);
+
 		MouseListener mListen = new MouseListener(this);
 		addMouseListener(mListen);
 		addMouseMotionListener(mListen);
 		elements = diagram.getViewNodes();
+		lines = diagram.getLines();
 	}
 	
 	public NodeDCView isHere(double x, double y){
@@ -51,9 +52,13 @@ public class RightPanel extends JPanel {
 		
 		
         ArrayList<NodeDCView> elements = diagram.getViewNodes();
+        ArrayList<Line>lineElements = diagram.getLines();
+        
         for (NodeDCView e:elements)
            e.updateView(g2);
-		
+        
+        for (Line e:lineElements)
+        	e.updateView(g2);
 	}
 	
 	public Diagram getDiagram(){

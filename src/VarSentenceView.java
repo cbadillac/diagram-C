@@ -5,56 +5,31 @@ import java.awt.geom.Rectangle2D;
 
 
 public class VarSentenceView extends NodeDCView {
-	
-	private double xPosition;
-	private double yPosition;
-	
+		
 	private Color color  = Color.GREEN;
 	private Rectangle2D rectangle;
 	private VarSentence node;
-	private static double HEIGHT    = 50;
-	private static double WIDTH     = 80;
+	private static int HEIGHT    = 50;
+	private static int WIDTH     = 80;
 
 	public VarSentenceView(VarSentence node) {
+		super(50, 50, WIDTH, HEIGHT);
 		// TODO Auto-generated constructor stub
-		xPosition = 50;
-		yPosition = 50;
 		this.node = node;
-		rectangle = new Rectangle2D.Double(xPosition, yPosition, HEIGHT, WIDTH);
+		rectangle = new Rectangle2D.Double(getXPosition(), getYPosition(), HEIGHT, WIDTH);
 	}
 
 	@Override
 	void updateView(Graphics g) {
 		// TODO Auto-generated method stub
 		Graphics2D g2 = (Graphics2D) g;
-		rectangle.setFrame(xPosition,yPosition, WIDTH, HEIGHT);
+		rectangle.setFrame(getXPosition(),getYPosition(), WIDTH, HEIGHT);
 		g2.setColor(color);
 		g2.fill(rectangle);
 
 	}
 
-	@Override
-	void setXPosition(double xPosition) {
-		this.xPosition = xPosition;
-
-
-	}
-
-	@Override
-	void setYPosition(double yPosition) {
-		// TODO Auto-generated method stub
-		this.yPosition = yPosition;
-
-	}
-
-	@Override
-	void dragTo(double x, double y) {
-		// TODO Auto-generated method stub		
-		this.xPosition = x - WIDTH/2;
-		this.yPosition = y - HEIGHT/2;
-
-	}
-
+	
 	@Override
 	boolean imHere(double x, double y) {
 		// TODO Auto-generated method stub

@@ -4,16 +4,17 @@ import java.util.ArrayList;
 public class Diagram {
 	private ArrayList<NodeDC> nodes;
 	private ArrayList<NodeDCView> viewNodes;
-	private ArrayList<NodeDC> root;
-	
+	private NodeDC root;
+	private ArrayList<Line> lines;
+		
 	public Diagram() {
 		nodes     = new ArrayList<NodeDC>();
-		viewNodes = new ArrayList<NodeDCView>(); 
-		root = new ArrayList<NodeDC>();
-		
-				
+		viewNodes = new ArrayList<NodeDCView>();
+		lines     = new ArrayList<Line>();
+		root      = new NodeDCRoot();				
 	}
-	
+
+
 	public void addNodes(NodeDC nd){
 		nodes.add(nd);
 	}
@@ -29,10 +30,16 @@ public class Diagram {
 		return viewNodes;
 	}
 
-	public ArrayList<NodeDC> getRoot() {
+	public NodeDC getRoot() {
 		return root;
 	}
-	
+
+
+	public ArrayList<Line> getLines() {
+		return lines;
+	}
+
+
 
 
 }

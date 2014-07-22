@@ -60,23 +60,30 @@ public class MouseListener extends MouseAdapter {
 			}else if (rightClickCount == 2 && nodeView != null && nodeDCViewTemp.getNode() != nodeView.getNode() ) {
 //				System.out.print("\n");
 				NodeDC nodeDCTemp = nodeDCViewTemp.getNode();
-				NodeDC actualNode = nodeView.getNode();	 
+				NodeDC actualNode = nodeView.getNode();
+				Vector v1 = nodeDCViewTemp.getVector();
+				Vector v2 = nodeView.getVector();
+				Vector r1 = new Vector(nodeDCViewTemp.getWIDTH()/2, nodeDCViewTemp.getHEIGHT() );
+				Vector r2 = new Vector(nodeView.getWIDTH()/2-1,0);
 				
-				if (nodeDCTemp.getRoot() == null) {
+				if (panel.getDiagram().getRoot().getCurrentNextNode() == null) {
+					panel.getDiagram().getRoot().setCurrentNextNode(nodeDCTemp);
+					nodeDCTemp.setCurrentNextNode(actualNode);
+					Line line = new Line(v1, v2, r1, r2);
+					panel.getDiagram().getLines().add(line);
+					panel.repaintView();
 					
-					panel.getDiagram().getRoot().add(nodeDCTemp);
-					nodeDCTemp.setRoot(panel.getDiagram().getRoot());
-					nodeDCTemp.getRoot().add(actualNode);
-					actualNode.setRoot(nodeDCTemp.getRoot());
 					System.out.print("added firsts nodes");
 					
-				} else if (!(nodeDCTemp instanceof IfSentence) ) {
-					nodeDCTemp.getRoot().add(actualNode);
-					actualNode.setRoot(nodeDCTemp.getRoot());
-					System.out.print("added no if node");
+				} else if (nodeDCTemp.getType() == NodeDC.typeOne) {
+					nodeDCTemp.setCurrentNextNode(actualNode);
+					Line line = new Line(v1, v2, r1, r2);
+					panel.getDiagram().getLines().add(line);
+					panel.repaintView();	
+					
 
-				} else if(nodeDCTemp instanceof IfSentence){
-					IfSentenceSetBranchWindow win = new IfSentenceSetBranchWindow((IfSentence) nodeDCTemp, actualNode); 
+				} else if(nodeDCTemp.getType() == NodeDC.typeThree){
+					IfSentenceSetBranchWindow win = new IfSentenceSetBranchWindow((IfSentence) nodeDCTemp, actualNode, panel); 
 					win.setVisible(true);
 					System.out.print("added if node");
 				}

@@ -7,40 +7,30 @@ import sun.org.mozilla.javascript.internal.ast.WithStatement;
 public class IfSentenceView extends NodeDCView {
 	private Color color  = Color.RED;
 	private Rectangle2D rectangle;
-	private double xPosition;
-	private double yPosition;
-	private static double HEIGHT    = 50;
-	private static double WIDTH     = 50;
+	private static int HEIGHT    = 50;
+	private static int WIDTH     = 50;
 	IfSentence node;
 	
 	public IfSentenceView(IfSentence node) {
-		
-		this.node = node;
-		xPosition = 50;
-		yPosition = 50;
-		rectangle = new Rectangle2D.Double(xPosition, yPosition, HEIGHT, WIDTH);
+		super(50, 50, WIDTH, HEIGHT);		
+		this.node = node;		
+		rectangle = new Rectangle2D.Double(getXPosition(), getYPosition(), HEIGHT, WIDTH);
 		
 		// TODO Auto-generated constructor stub
 	}
 	
 	public void setXPosition(double xPosition){
-		this.xPosition = xPosition;
+		xPosition = new Integer((int) xPosition);
 	}
 	
 	public void setYPosition(double yPosition){
-		this.yPosition = yPosition;
-	}
-	
-	public void dragTo(double x, double y){
-		this.xPosition = x - WIDTH/2;
-		this.yPosition = y - HEIGHT/2;
-		
+		yPosition = new Integer((int) yPosition);
 	}
 	
 	public void updateView(Graphics g){
 		
 		Graphics2D g2 = (Graphics2D) g;
-		rectangle.setFrame(xPosition,yPosition, WIDTH, HEIGHT);
+		rectangle.setFrame(getXPosition(),getYPosition(), WIDTH, HEIGHT);
 		g2.setColor(color);
 		AffineTransform old = g2.getTransform();
         g2.rotate(Math.toRadians(45), rectangle.getCenterX(), rectangle.getCenterY());
@@ -61,6 +51,5 @@ public class IfSentenceView extends NodeDCView {
 		else
 			return false;
 	}
-
 
 }
