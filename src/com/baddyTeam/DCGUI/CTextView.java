@@ -1,7 +1,6 @@
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.geom.Rectangle2D;
+package com.baddyTeam.DCGUI;
+
+import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 
 
@@ -34,7 +33,7 @@ public class CTextView extends NodeDCView {
 
 	@Override
 	boolean imHere(double x, double y) {
-		if(x<getXPosition() + HEIGHT && x>getXPosition() && y>getYPosition() && y<getYPosition() + HEIGHT)
+		if(x<getXPosition() + WIDTH && x>getXPosition() && y>getYPosition() && y<getYPosition() + HEIGHT)
 			return true;
 		else
 			return false;
@@ -42,7 +41,7 @@ public class CTextView extends NodeDCView {
 	}
 
 	@Override
-	NodeDC getNode() {
+    NodeDC getNode() {
 		// TODO Auto-generated method stub
 		return node;
 	}
