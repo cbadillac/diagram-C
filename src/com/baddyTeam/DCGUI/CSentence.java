@@ -3,15 +3,15 @@ package com.baddyTeam.DCGUI;
 import java.awt.*;
 
 
-public class CText extends NodeDC {
-	private CTextView view;
-	private String text;
-	private static int id=0;
-	
-	public CText() {
-		super(id++);
-		view = new CTextView(this);
-		setText(new String());
+public class CSentence extends NodeDC {
+    private CSentenceView view;
+    private String        text;
+    private static int id = 0;
+
+    public CSentence() {
+        super(id++);
+        view = new CSentenceView(this);
+        setText(new String());
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class CText extends NodeDC {
 
 	}
 
-	public CTextView getView() {
+	public CSentenceView getView() {
 		return view;
 	}
 

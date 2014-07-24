@@ -7,24 +7,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class CTextWindow extends JFrame {
+public class CSentenceWindow extends JFrame {
 
-	private JPanel contentPane;
-	private CText cText;
+    private JPanel    contentPane;
+    private CSentence cText;
 
-	/**
-	 * Launch the application.
-	 */
+    /**
+     * Launch the application.
+     */
 //	
-	/**
-	 * Create the frame.
-	 * @param cTxt 
-	 */
-	public CTextWindow(CText cTxt) {
-		this.cText = cTxt;
-		setTitle("C Code");
-		setBounds(100, 100, 204, 297);
-		contentPane = new JPanel();
+
+    /**
+     * Create the frame.
+     * @param cTxt
+     */
+    public CSentenceWindow(CSentence cTxt) {
+        this.cText = cTxt;
+        setTitle("C Code");
+        setBounds(100, 100, 204, 297);
+        contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
