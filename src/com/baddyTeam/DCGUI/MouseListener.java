@@ -25,15 +25,15 @@ public class MouseListener extends MouseAdapter {
 	}
 	
 	public void mousePressed( MouseEvent e ) {
-        if(e.getClickCount() >= 2 && nodeView != null && e.getButton() == LEFTBUTTON){
+        if(nodeView != null && e.getClickCount() >= 2  && e.getButton() == LEFTBUTTON){
         	if (nodeView instanceof IfSentenceView){
-        		IfSentence ifSentence = (IfSentence)nodeView.getNode(); 
+        		IfSentence ifSentence  = (IfSentence)nodeView.getNode();
         		IfSentenceWindow frame = new IfSentenceWindow(ifSentence);
     			frame.setVisible(true);
         	}else if (nodeView instanceof VarSentenceView) {
         		VarSentence varSentence = (VarSentence)nodeView.getNode();
         		VarSentenceWindow frame = new VarSentenceWindow(varSentence);
-				frame.setVisible(true);    	
+				frame.setVisible(true);
 			}else if (nodeView instanceof CSentenceView) {
         		CSentence cText = (CSentence)nodeView.getNode();
         		CSentenceWindow frame = new CSentenceWindow(cText);

@@ -42,6 +42,7 @@ public abstract  class NodeDC implements Iterator<NodeDC>{
 
 	abstract void updateView(Graphics g);
 	abstract NodeDCView getView();
+    abstract String getText();
 
 	public NodeDC getNode() {
 		return this;

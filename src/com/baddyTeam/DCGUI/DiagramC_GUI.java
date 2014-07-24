@@ -5,10 +5,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//import sun.org.mozilla.javascript.internal.annotations.JSConstructor;
 
 public class DiagramC_GUI extends JFrame {
 	RightPanel rightPanel;
+    LeftPanel leftPanel;
 	
 	public DiagramC_GUI() {
 		
@@ -23,26 +23,26 @@ public class DiagramC_GUI extends JFrame {
 		label1.setHorizontalAlignment(SwingConstants.CENTER);
 		label1.setBounds(10, 9, 79, 14);
 		
-		LeftPanel leftPanel = new LeftPanel();
+		this.leftPanel = new LeftPanel();
         leftPanel.setLayout(null);
         leftPanel.add(label1);
 
 		this.rightPanel = new RightPanel(new Diagram());
-		this.rightPanel.setPreferredSize(new Dimension(100, 100));
+		rightPanel.setPreferredSize(new Dimension(100, 100));
 		
 		final JScrollPane scroll = new JScrollPane(this.rightPanel);
 
 		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, scroll);
         splitPane.setDividerLocation(100);
         getContentPane().add(splitPane);
-		
+
+        // TODO create buttons with a array of pre-set buttons (then iterate ...)
 		JButton btnIf = new JButton("If");
         btnIf.setIcon(new ImageIcon(DiagramC_GUI.class.getResource("/if_sentence2.png")));
         btnIf.setBounds(10, 34, 79, 37);
 		btnIf.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				IfSentence ifSentence;
-				ifSentence = Diagram.createIfSentence();
+				IfSentence ifSentence = Diagram.createIfSentence();
 				rightPanel.addViewNodes(ifSentence.getView());
 				rightPanel.repaint();
 			}

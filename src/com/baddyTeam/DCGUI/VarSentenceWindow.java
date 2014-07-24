@@ -13,18 +13,12 @@ public class VarSentenceWindow extends JFrame {
 	private JTextField textField_1;
 	private VarSentence varSentence;
 
-	/**
-	 * Launch the application.
-	 */
-		/**
-	 * Create the frame.
-	 */
 	public VarSentenceWindow(VarSentence varSentence ) {
-		
 		this.varSentence = varSentence;
 		setTitle("New Variable");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 227, 237);
+
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -87,7 +81,6 @@ public class VarSentenceWindow extends JFrame {
 		JLabel lblDataType = new JLabel("Data type:");
 		lblDataType.setBounds(10, 98, 86, 14);
 		contentPane.add(lblDataType);
-		
 	}
 	
 	private void sendText(String varName, String varValue, String varType){

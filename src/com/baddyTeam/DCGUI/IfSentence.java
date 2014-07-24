@@ -38,11 +38,11 @@ public class IfSentence extends NodeDC {
     public void updateView(Graphics g){
         view.updateView(g);
     }
-
-
+    @Override
     public String getText(){
         return this.conditionText;
     }
+    
     public void setText(String txt){
         this.conditionText = txt;
     }

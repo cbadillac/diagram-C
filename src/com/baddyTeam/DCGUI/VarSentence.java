@@ -8,64 +8,58 @@ public class VarSentence extends NodeDC {
 	private static int id = 0;
 	
 	private VarSentenceView view;
-	
-	private String varName;
-	private String varValue;
-	private String varType;
+
+    private String varType = null;
+	private String varName = null;
+	private String varValue = null;
 
 	
 	public VarSentence() {
 		super(id++);
-		view     = new VarSentenceView(this);
-		setVarName(new String());
-		setVarValue(new String());
+		view = new VarSentenceView(this);
 	}
-
 	
 	@Override
 	String toC() {
-		return varType+" "+varName+" = "+varValue+";";
+		return (varType==null || varName==null || varValue==null)? null: varType+" "+varName+" = "+varValue+";";
 	}
+    @Override
+    String getType() {
+        // TODO Auto-generated method stub
+        return NodeDC.typeOne;
+    }
+
 
 	@Override
 	void updateView(Graphics g) {
 		view.updateView(g);
 	}
-	
-	
+	@Override
 	public VarSentenceView getView(){
 		return view;
 	}
+    @Override
+    public String getText(){
+        return (varType==null || varName==null || varValue==null)? null: varName+" = "+varValue;
+    }
 
+    public String getVarType() {
+        return varType;
+    }
 	public String getVarName() {
 		return varName;
 	}
-
+    public String getVarValue() {
+        return varValue;
+    }
 	public void setVarName(String varName) {
 		this.varName = varName;
 	}
-
-	public String getVarValue() {
-		return varValue;
-	}
-
 	public void setVarValue(String varValue) {
 		this.varValue = varValue;
 	}
-
-	public String getVarType() {
-		return varType;
-	}
-
-	public void setVarType(String varType) {
+    public void setVarType(String varType) {
 		this.varType = varType;
-	}
-
-
-	@Override
-	String getType() {
-		// TODO Auto-generated method stub
-		return NodeDC.typeOne;
 	}
 
 }

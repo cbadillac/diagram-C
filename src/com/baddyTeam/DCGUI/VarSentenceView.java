@@ -1,7 +1,9 @@
 package com.baddyTeam.DCGUI;
 
 import java.awt.*;
+import java.awt.font.TextAttribute;
 import java.awt.geom.Rectangle2D;
+import java.text.AttributedString;
 
 
 public class VarSentenceView extends NodeDCView {
@@ -25,8 +27,12 @@ public class VarSentenceView extends NodeDCView {
 		g2.setColor(color);
 		g2.fill(rectangle);
 
+        if(node.getText() != null) {
+            g2.setColor(Color.black);
+            g2.setFont(new Font("Consolas", Font.BOLD, 10));
+            g2.drawString(node.getText(), getXPosition()+10, getYPosition()+HEIGHT/2);
+        }
 	}
-
 	
 	@Override
 	boolean imHere(double x, double y) {

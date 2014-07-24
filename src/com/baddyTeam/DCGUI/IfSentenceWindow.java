@@ -10,7 +10,6 @@ public class IfSentenceWindow extends JFrame {
 
 	private JPanel contentPane;
 	private IfSentence ifSentence;
-	private String text;
 
 	public IfSentenceWindow(IfSentence ifstc) {
 		setTitle("If Sentence");
@@ -25,33 +24,29 @@ public class IfSentenceWindow extends JFrame {
 		JLabel lblWriteYourCondition = new JLabel("Write your condition here:");
 		lblWriteYourCondition.setBounds(5, 5, 203, 14);
 		contentPane.add(lblWriteYourCondition);
-	
-		
+
 		JButton btnOk = new JButton("OK");
-		
 		btnOk.setBounds(136, 60, 92, 23);
 		contentPane.add(btnOk);
 		
 		final JFormattedTextField formattedTextField = new JFormattedTextField();
-		
 		if(ifSentence.getText() != null){
 			formattedTextField.setText(ifstc.getText());
 		}
 		formattedTextField.setBounds(15, 24, 193, 20);
 		contentPane.add(formattedTextField);
-		this.text = formattedTextField.getText();
 		
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.print("Ok if apretado");
-				sendText(formattedTextField.getText());
+				setNodeText(formattedTextField.getText());
 				setVisible(false);				
 			}
 		});
 	}
 	
-	private void sendText(String txt){
-		System.out.print(txt);
+	private void setNodeText(String txt){
+		//System.out.print(txt);
 		ifSentence.setText(txt);
 	}
 }

@@ -1,9 +1,11 @@
 package com.baddyTeam.DCGUI;
 
 import java.awt.*;
+import java.awt.font.TextAttribute;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.Rectangle2D.Double;
+import java.text.AttributedString;
 
 //import sun.org.mozilla.javascript.internal.ast.WithStatement;
 
@@ -23,13 +25,11 @@ public class IfSentenceView extends NodeDCView {
 	public void setXPosition(double xPosition){
 		xPosition = new Integer((int) xPosition);
 	}
-	
 	public void setYPosition(double yPosition){
 		yPosition = new Integer((int) yPosition);
 	}
 	
 	public void updateView(Graphics g){
-		
 		Graphics2D g2 = (Graphics2D) g;
 		rectangle.setFrame(getXPosition(),getYPosition(), WIDTH, HEIGHT);
 		g2.setColor(color);
@@ -38,7 +38,12 @@ public class IfSentenceView extends NodeDCView {
         //draw shape/image (will be rotated)
         g2.fill(rectangle);
         g2.setTransform(old);
- 
+
+        if(node.getText() != null) {
+            g2.setColor(Color.black);
+            g2.setFont(new Font("Consolas", Font.BOLD, 10));
+            g2.drawString(node.getText(), getXPosition()-10, getYPosition()+HEIGHT/2+5);
+        }
 	}
 	
 	public IfSentence getNode(){
