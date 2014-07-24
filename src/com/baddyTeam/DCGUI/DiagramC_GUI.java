@@ -8,11 +8,9 @@ import java.awt.event.ActionListener;
 //import sun.org.mozilla.javascript.internal.annotations.JSConstructor;
 
 public class DiagramC_GUI extends JFrame {
-	Diagram diagram;
 	RightPanel rightPanel;
 	
-	public DiagramC_GUI(Diagram dg) {
-		diagram = dg;
+	public DiagramC_GUI() {
 		
 		setFont(new Font("Tahoma", Font.PLAIN, 11));
 		setTitle("Diagram-C");
@@ -44,7 +42,7 @@ public class DiagramC_GUI extends JFrame {
 		btnIf.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				IfSentence ifSentence;
-				ifSentence = new IfSentence();
+				ifSentence = Diagram.createIfSentence();
 				rightPanel.addViewNodes(ifSentence.getView());
 				rightPanel.repaint();
 			}
@@ -56,7 +54,7 @@ public class DiagramC_GUI extends JFrame {
         btnVar.setBounds(10, 82, 79, 37);
 		btnVar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VarSentence varSentence = new VarSentence();
+				VarSentence varSentence = Diagram.createVarSentence();
 				rightPanel.addViewNodes(varSentence.getView());
 				rightPanel.repaintView();
 			}
@@ -68,7 +66,7 @@ public class DiagramC_GUI extends JFrame {
         btnCCode.setBounds(10, 131, 79, 37);
 		btnCCode.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CSentence cText = new CSentence();
+				CSentence cText = Diagram.createCSentence();
 				rightPanel.addViewNodes(cText.getView());
 				rightPanel.repaintView();
 			}
