@@ -12,7 +12,7 @@ public abstract  class NodeDC implements Iterator<NodeDC>{
 	public static String typeOne   = "typeOne";
 	public static String typeTwo   = "typeTwo";
 	public static String typeThree = "typeThree";
-	private NodeDC next;
+	protected NodeDC next;
 	
 
 	protected NodeDC( int id){
