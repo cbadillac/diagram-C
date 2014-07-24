@@ -6,18 +6,19 @@ import java.awt.*;
 public class IfSentence extends NodeDC {
 	private static int id=0;
 
-    private NodeDC leftNextNode    = null;
-    private NodeDC rightNextNode   = null;
-    private NodeDC currentNextNode = null;
+    private NodeDC nextFalse;
+    private NodeDC nextTrue;
 
 	private IfSentenceView view;
-	private String text;
+	private String conditionText;
 	
 	public IfSentence() {
 		super(id++);
-		view = new IfSentenceView(this);
-		text = new String();
-		System.out.print("If Created :) id:" + id + "\n");
+		this.view = new IfSentenceView(this);
+		this.conditionText = new String();
+
+        this.nextFalse = super.next;
+        this.nextTrue = this.nextFalse;
 	}
 
 	@Override
@@ -41,29 +42,25 @@ public class IfSentence extends NodeDC {
 
 
     public String getText(){
-        return text;
+        return this.conditionText;
     }
     public void setText(String txt){
-        this.text = txt;
+        this.conditionText = txt;
     }
 
-    public NodeDC getLeftNextNode() {
-        return leftNextNode;
+    public NodeDC getNextFalse() {
+        return this.nextFalse;
     }
-    public void setLeftNextNode(NodeDC leftNextNode) {
-        this.leftNextNode = leftNextNode;
+    public NodeDC getNextTrue() {
+        return this.nextTrue;
     }
-    public NodeDC getRightNextNode() {
-        return rightNextNode;
+    public void setNextFalse(NodeDC nextFalse) {
+        nextFalse.setNext(this.nextFalse);
+        this.nextFalse = nextFalse;
     }
-    public void setRightNextNode(NodeDC rightNextNode) {
-        this.rightNextNode = rightNextNode;
-    }
-    public NodeDC getCurrentNextNode() {
-        return currentNextNode;
-    }
-    public void setCurrentNextNode(NodeDC currentNextNode) {
-        this.currentNextNode = currentNextNode;
+    public void setNextTrue(NodeDC nextTrue) {
+        nextTrue.setNext(this.nextTrue);
+        this.nextTrue = nextTrue;
     }
 
 }
