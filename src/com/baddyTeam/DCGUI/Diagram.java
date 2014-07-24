@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 
 public class Diagram implements Iterable<NodeDC>{
-    //TODO this class will use the Fabric pattern design.
 
+    // TODO the first NodeDC node should be a function reference (main, ...)
 	private NodeDC firstNode;
 
 	public Diagram() {
