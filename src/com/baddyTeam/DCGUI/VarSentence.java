@@ -24,7 +24,7 @@ public class VarSentence extends NodeDC {
 	
 	@Override
 	String toC() {
-		return null;
+		return varType+" "+varName+" = "+varValue+";";
 	}
 
 	@Override
