@@ -1,24 +1,9 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+package com.baddyTeam.DCGUI;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.BoxLayout;
-
-import java.awt.CardLayout;
-
-import javax.swing.JLabel;
-import javax.swing.JButton;
-
-import java.awt.GridBagLayout;
-import java.awt.FlowLayout;
-
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class IfSentenceSetBranchWindow extends JFrame {
@@ -70,41 +55,29 @@ public class IfSentenceSetBranchWindow extends JFrame {
 		Vector v1 = node.getView().getVector();
 		Vector v2 = nextNode.getView().getVector();
 		Vector r2 = new Vector(nextNode.getView().getWIDTH()/2,0);
-		switch (option) {
-		case "Current":{
-			node.setCurrentNextNode(nextNode);
-			Vector r1 = new Vector(node.getView().getWIDTH()/2, node.getView().getHEIGHT() );
-			Line line = new Line(v1, v2, r1, r2);
-			panel.getDiagram().getLines().add(line);
-			panel.repaintView();
-			break;
-			}			
-		
-		case "If":{
-			node.setLeftNextNode(nextNode);
-			Vector r1 = new Vector(node.getView().getWIDTH(), node.getView().getHEIGHT()/2 );
-			Line line = new Line(v1, v2, r1, r2);
-			panel.getDiagram().getLines().add(line);
-			panel.repaintView();
-			break;
-			}
-			
-		
-		case "Else":{
-			node.setRightNextNode(nextNode);
-			Vector r1 = new Vector(0, node.getView().getHEIGHT()/2 );
-			Vector r3 = new Vector(nextNode.getView().getWIDTH()/2, 0);
-			System.out.print(nextNode.getView().getWIDTH());
-			Line line = new Line(v1, v2, r1, r3);
-			panel.getDiagram().getLines().add(line);
-			panel.repaintView();
-			break;
-			}
 
-		default:{
-			System.out.print("ERROR: No se puede crear branch");
-			break;
-			}
-		}
+        if(option.equals("Current")) {
+            node.setCurrentNextNode(nextNode);
+            Vector r1 = new Vector(node.getView().getWIDTH()/2, node.getView().getHEIGHT() );
+            Line line = new Line(v1, v2, r1, r2);
+            panel.getDiagram().getLines().add(line);
+            panel.repaintView();
+        }else if(option.equals("If")) {
+            node.setLeftNextNode(nextNode);
+            Vector r1 = new Vector(node.getView().getWIDTH(), node.getView().getHEIGHT()/2 );
+            Line line = new Line(v1, v2, r1, r2);
+            panel.getDiagram().getLines().add(line);
+            panel.repaintView();
+        }else if(option.equals("Else")) {
+            node.setRightNextNode(nextNode);
+            Vector r1 = new Vector(0, node.getView().getHEIGHT()/2 );
+            Vector r3 = new Vector(nextNode.getView().getWIDTH()/2, 0);
+            System.out.print(nextNode.getView().getWIDTH());
+            Line line = new Line(v1, v2, r1, r3);
+            panel.getDiagram().getLines().add(line);
+            panel.repaintView();
+        }else{
+            System.out.print("ERROR: No se puede crear branch");
+        }
 	}
 }

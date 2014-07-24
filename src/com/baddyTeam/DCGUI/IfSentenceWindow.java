@@ -1,20 +1,9 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+package com.baddyTeam.DCGUI;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JEditorPane;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.JFormattedTextField;
-import javax.swing.JButton;
-import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
-import java.awt.Component;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class IfSentenceWindow extends JFrame {

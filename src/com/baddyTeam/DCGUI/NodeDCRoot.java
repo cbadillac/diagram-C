@@ -1,4 +1,6 @@
-import java.awt.Graphics;
+package com.baddyTeam.DCGUI;
+
+import java.awt.*;
 
 
 public class NodeDCRoot extends NodeDC {
@@ -28,7 +30,7 @@ public class NodeDCRoot extends NodeDC {
 	}
 
 	@Override
-	NodeDCView getView() {
+    NodeDCView getView() {
 		// TODO Auto-generated method stub
 		return null;
 	}

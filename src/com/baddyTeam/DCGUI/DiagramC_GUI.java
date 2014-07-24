@@ -1,41 +1,11 @@
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.Frame;
+package com.baddyTeam.DCGUI;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.MenuListener;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-
-import java.awt.Label;
-import java.awt.CardLayout;
-
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-
-import java.awt.FlowLayout;
-
-import javax.swing.SwingConstants;
-
-import java.awt.Font;
-
-import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
-
-import sun.org.mozilla.javascript.internal.annotations.JSConstructor;
-
-import java.awt.Scrollbar;
+//import sun.org.mozilla.javascript.internal.annotations.JSConstructor;
 
 
 public class DiagramC_GUI extends JFrame {
@@ -60,27 +30,21 @@ public class DiagramC_GUI extends JFrame {
 //		label2.setHorizontalAlignment(SwingConstants.LEFT);
 		
 		LeftPanel leftPanel = new LeftPanel();
-		rightPanel = new RightPanel(diagram);
+        leftPanel.setLayout(null);
+        leftPanel.add(label1);
 
+		this.rightPanel = new RightPanel(diagram);
+		this.rightPanel.setPreferredSize(new Dimension(100, 100));
 		
-		leftPanel.setLayout(null);
-		
-		leftPanel.add(label1);
+		final JScrollPane scroll = new JScrollPane(this.rightPanel);
 
-		
-		rightPanel.setPreferredSize(new Dimension(100, 100));
-		
-		final JScrollPane scroll = new JScrollPane(rightPanel);
-		
-		
 		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, scroll);
 		
 		JButton btnIf = new JButton("If");
 		btnIf.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				IfSentence ifSentence;
-				ifSentence = new IfSentence ();
+				ifSentence = new IfSentence();
 				diagram.addNodes(ifSentence);
 				diagram.addViewNodes(ifSentence.getView());
 				rightPanel.repaint();

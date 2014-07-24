@@ -1,5 +1,6 @@
-import java.awt.Graphics;
-import java.util.ArrayList;
+package com.baddyTeam.DCGUI;
+
+import java.awt.*;
 
 
 public class IfSentence extends NodeDC {

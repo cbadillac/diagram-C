@@ -1,4 +1,6 @@
-import java.awt.Graphics;
+package com.baddyTeam.DCGUI;
+
+import java.awt.*;
 
 
 public abstract class NodeDCView implements Cloneable {

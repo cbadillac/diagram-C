@@ -1,9 +1,7 @@
-import java.awt.event.*;
+package com.baddyTeam.DCGUI;
 
-import javax.swing.JFrame;
-import javax.swing.text.html.HTMLDocument.HTMLReader.IsindexAction;
-
-import com.sun.org.apache.bcel.internal.generic.IfInstruction;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class MouseListener extends MouseAdapter {
@@ -21,9 +19,7 @@ public class MouseListener extends MouseAdapter {
 	
 	public void mouseMoved(MouseEvent e){
 		if(panel.isHere(e.getX(), e.getY()) != null){
-			
 			nodeView = panel.isHere(e.getX(), e.getY());
-			
 		}
 		else
 			nodeView = null;
@@ -31,7 +27,6 @@ public class MouseListener extends MouseAdapter {
 	
 	public void mousePressed( MouseEvent e ) {		
         if(e.getClickCount() >= 2 && nodeView != null && e.getButton() == LEFTBUTTON){
-            //do something
         	if (nodeView instanceof IfSentenceView){
         		IfSentence ifSentence = (IfSentence)nodeView.getNode(); 
         		IfSentenceWindow frame = new IfSentenceWindow(ifSentence);
@@ -40,15 +35,13 @@ public class MouseListener extends MouseAdapter {
         		VarSentence varSentence = (VarSentence)nodeView.getNode();
         		VarSentenceWindow frame = new VarSentenceWindow(varSentence);
 				frame.setVisible(true);    	
-			}
-        	else if (nodeView instanceof CTextView ) {
+			}else if (nodeView instanceof CTextView) {
         		CText cText = (CText)nodeView.getNode();
         		System.out.print(cText.getId());
         		CTextWindow frame = new CTextWindow(cText);
         		frame.setVisible(true);
 				
 			}
-        	
         }
         
         if (e.getButton() == 3) {

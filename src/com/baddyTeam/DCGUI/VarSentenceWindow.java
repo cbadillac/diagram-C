@@ -1,24 +1,9 @@
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+package com.baddyTeam.DCGUI;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
-import net.miginfocom.swing.MigLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import java.awt.FlowLayout;
-import javax.swing.JFormattedTextField;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JRadioButton;
-import javax.swing.JList;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
 
 
 public class VarSentenceWindow extends JFrame {
@@ -53,8 +38,6 @@ public class VarSentenceWindow extends JFrame {
 			textField.setText(varSentence.getVarName());
 		}
 		
-		
-		
 		JLabel lblVariableName = new JLabel("New variable name:");
 		lblVariableName.setBounds(10, 15, 134, 14);
 		contentPane.add(lblVariableName);
@@ -68,7 +51,6 @@ public class VarSentenceWindow extends JFrame {
 		textField_1.setBounds(10, 75, 86, 20);
 		contentPane.add(textField_1);
 		
-		
 		if(varSentence.getVarValue() != null){
 			textField_1.setText(varSentence.getVarValue());
 		}
@@ -78,27 +60,19 @@ public class VarSentenceWindow extends JFrame {
 		comboBox.setBounds(10, 117, 86, 20);
 		contentPane.add(comboBox);
 				
-		if (varSentence.getVarType() != null) {
-		
-			switch (varSentence.getVarType()) {
-			case "int":
-				comboBox.setSelectedItem(comboBox.getItemAt(0));
-				break;
-			
-			case "float":
-				comboBox.setSelectedItem(comboBox.getItemAt(1));
-				break;
-			case "double":
-				comboBox.setSelectedItem(comboBox.getItemAt(2));
-				break;
-			case "char":
-				comboBox.setSelectedItem(comboBox.getItemAt(3));
-			default:
-				comboBox.setSelectedItem(comboBox.getItemAt(0));
-				break;
-			}
+		if ( varSentence.getVarType() != null) {
+            if(varSentence.getVarType().equals("int")) {
+                comboBox.setSelectedItem(comboBox.getItemAt(0));
+            }else if(varSentence.getVarType().equals("float")){
+                comboBox.setSelectedItem(comboBox.getItemAt(1));
+            }else if(varSentence.getVarType().equals("double")) {
+                comboBox.setSelectedItem(comboBox.getItemAt(2));
+            }else if(varSentence.getVarType().equals("char")){
+                comboBox.setSelectedItem(comboBox.getItemAt(3));
+            }else{
+                comboBox.setSelectedItem(comboBox.getItemAt(0));
+            }
 		}
-		
 		
 		JButton btnOk = new JButton("OK");
 		btnOk.addActionListener(new ActionListener() {
@@ -109,8 +83,6 @@ public class VarSentenceWindow extends JFrame {
 		});
 		btnOk.setBounds(112, 165, 89, 23);
 		contentPane.add(btnOk);
-		
-		
 		
 		JLabel lblDataType = new JLabel("Data type:");
 		lblDataType.setBounds(10, 98, 86, 14);

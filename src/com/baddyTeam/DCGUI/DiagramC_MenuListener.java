@@ -1,8 +1,8 @@
+package com.baddyTeam.DCGUI;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
-import javax.swing.JMenuItem;
 
 
 public class DiagramC_MenuListener implements ActionListener {

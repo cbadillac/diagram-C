@@ -1,8 +1,11 @@
+package com.baddyTeam.DCGUI;
+
 import java.awt.*;
-import java.awt.geom.*;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.Rectangle2D;
 import java.awt.geom.Rectangle2D.Double;
 
-import sun.org.mozilla.javascript.internal.ast.WithStatement;
+//import sun.org.mozilla.javascript.internal.ast.WithStatement;
 
 public class IfSentenceView extends NodeDCView {
 	private Color color  = Color.RED;
@@ -14,7 +17,7 @@ public class IfSentenceView extends NodeDCView {
 	public IfSentenceView(IfSentence node) {
 		super(50, 50, WIDTH, HEIGHT);		
 		this.node = node;		
-		rectangle = new Rectangle2D.Double(getXPosition(), getYPosition(), HEIGHT, WIDTH);
+		rectangle = new Double(getXPosition(), getYPosition(), HEIGHT, WIDTH);
 		
 		// TODO Auto-generated constructor stub
 	}

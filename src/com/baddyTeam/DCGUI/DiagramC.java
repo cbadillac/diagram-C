@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+package com.baddyTeam.DCGUI;
 
 
 public class DiagramC {
@@ -10,6 +10,4 @@ public class DiagramC {
 			mainGUI.setDefaultCloseOperation(DiagramC_GUI.EXIT_ON_CLOSE);
 		    mainGUI.setVisible(true);
 	}
-		
-		
 }

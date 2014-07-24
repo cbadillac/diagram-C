@@ -1,21 +1,14 @@
-import javax.swing.JPanel;
+package com.baddyTeam.DCGUI;
 
-import com.sun.corba.se.impl.orbutil.graph.Node;
-
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GridLayout;
-import java.awt.geom.*; 
+import javax.swing.*;
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
 
 public class RightPanel extends JPanel {
 
 	private Diagram diagram;
 	private ArrayList<NodeDCView> elements;
 	private ArrayList<Line> lines;
-	
 	
 	/**
 	 * Create the panel.
@@ -49,10 +42,9 @@ public class RightPanel extends JPanel {
 	public void paintComponent(Graphics g){
 		Graphics2D g2 = (Graphics2D) g;
 		super.paintComponent(g);
-		
-		
+
         ArrayList<NodeDCView> elements = diagram.getViewNodes();
-        ArrayList<Line>lineElements = diagram.getLines();
+        ArrayList<Line> lineElements = diagram.getLines();
         
         for (NodeDCView e:elements)
            e.updateView(g2);

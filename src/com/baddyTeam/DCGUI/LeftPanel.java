@@ -1,12 +1,7 @@
-import javax.swing.JPanel;
+package com.baddyTeam.DCGUI;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GridLayout;
-import java.awt.geom.*; 
+import javax.swing.*;
 import java.awt.*;
-import java.util.*;
 
 public class LeftPanel extends JPanel {
 
@@ -19,8 +14,6 @@ public class LeftPanel extends JPanel {
 	}
 	
 	public void paintComponent(Graphics g){
-
-		
 	}
 
 }

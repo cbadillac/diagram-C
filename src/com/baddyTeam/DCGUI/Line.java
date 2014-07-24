@@ -1,7 +1,6 @@
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+package com.baddyTeam.DCGUI;
+
+import java.awt.*;
 import java.awt.geom.Line2D;
 
 
