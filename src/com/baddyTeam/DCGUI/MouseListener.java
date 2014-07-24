@@ -56,7 +56,7 @@ public class MouseListener extends MouseAdapter {
 				Vector r2 = new Vector(nodeView.getWIDTH()/2-1,0);
 
                 if (nodeDCTemp.getType() == NodeDC.typeOne) {
-                    nodeDCTemp.setCurrentNextNode(actualNode);
+                    nodeDCTemp.setNext(actualNode);
                     Line line = new Line(v1, v2, r1, r2);
                     panel.getLines().add(line);
                     panel.repaintView();
