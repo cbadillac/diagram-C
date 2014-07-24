@@ -60,13 +60,13 @@ public class IfSentenceSetBranchWindow extends JFrame {
             node.setCurrentNextNode(nextNode);
             Vector r1 = new Vector(node.getView().getWIDTH()/2, node.getView().getHEIGHT() );
             Line line = new Line(v1, v2, r1, r2);
-            panel.getDiagram().getLines().add(line);
+            panel.getLines().add(line);
             panel.repaintView();
         }else if(option.equals("If")) {
             node.setLeftNextNode(nextNode);
             Vector r1 = new Vector(node.getView().getWIDTH(), node.getView().getHEIGHT()/2 );
             Line line = new Line(v1, v2, r1, r2);
-            panel.getDiagram().getLines().add(line);
+            panel.getLines().add(line);
             panel.repaintView();
         }else if(option.equals("Else")) {
             node.setRightNextNode(nextNode);
@@ -74,7 +74,7 @@ public class IfSentenceSetBranchWindow extends JFrame {
             Vector r3 = new Vector(nextNode.getView().getWIDTH()/2, 0);
             System.out.print(nextNode.getView().getWIDTH());
             Line line = new Line(v1, v2, r1, r3);
-            panel.getDiagram().getLines().add(line);
+            panel.getLines().add(line);
             panel.repaintView();
         }else{
             System.out.print("ERROR: No se puede crear branch");

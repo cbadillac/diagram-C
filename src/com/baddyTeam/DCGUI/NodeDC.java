@@ -12,9 +12,6 @@ public abstract  class NodeDC {
 	public static String typeOne   = "typeOne";
 	public static String typeTwo   = "typeTwo";
 	public static String typeThree = "typeThree";
-	private ArrayList<NodeDC> root = null;
-	private NodeDC leftNextNode    = null;
-	private NodeDC rightNextNode   = null;
 	private NodeDC currentNextNode = null;
 	
 
@@ -30,32 +27,13 @@ public abstract  class NodeDC {
 
 	abstract void updateView(Graphics g);
 	abstract NodeDCView getView();
-	
-	public ArrayList<NodeDC> getRoot() {
-		return root;
-	}
-	public void setRoot(ArrayList<NodeDC> root) {
-		this.root = root;
-	}
-	public NodeDC getLeftNextNode() {
-		return leftNextNode;
-	}
-	public void setLeftNextNode(NodeDC leftNextNode) {
-		this.leftNextNode = leftNextNode;
-	}
-	public NodeDC getRightNextNode() {
-		return rightNextNode;
-	}
-	public void setRightNextNode(NodeDC rightNextNode) {
-		this.rightNextNode = rightNextNode;
-	}
+
 	public NodeDC getCurrentNextNode() {
 		return currentNextNode;
 	}
 	public void setCurrentNextNode(NodeDC currentNextNode) {
 		this.currentNextNode = currentNextNode;
 	}
-	
 
 }
 

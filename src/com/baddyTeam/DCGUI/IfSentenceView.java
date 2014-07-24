@@ -18,8 +18,6 @@ public class IfSentenceView extends NodeDCView {
 		super(50, 50, WIDTH, HEIGHT);		
 		this.node = node;		
 		rectangle = new Double(getXPosition(), getYPosition(), HEIGHT, WIDTH);
-		
-		// TODO Auto-generated constructor stub
 	}
 	
 	public void setXPosition(double xPosition){

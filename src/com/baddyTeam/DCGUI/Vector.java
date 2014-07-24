@@ -5,7 +5,6 @@ public class Vector {
 	private int y;
 
 	public Vector(int x, int y) {
-		// TODO Auto-generated constructor stub
 		this.setX(x);
 		this.setY(y);
 	}

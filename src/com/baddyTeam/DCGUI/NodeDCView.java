@@ -57,15 +57,12 @@ public abstract class NodeDCView implements Cloneable {
 	public void setWIDTH(int WIDTH) {
 		this.WIDTH = WIDTH;
 	}
-
 	public void setHEIGHT(int HEIGHT) {
 		this.HEIGHT = HEIGHT;
 	}
-	
 	public int getWIDTH(){
 		return this.WIDTH;
 	}
-	
 	public int getHEIGHT(){
 		return this.HEIGHT;
 	}

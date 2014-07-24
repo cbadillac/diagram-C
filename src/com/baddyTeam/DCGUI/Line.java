@@ -20,12 +20,9 @@ public class Line {
 		this.relativeVect2 = rV2;
 		line2D = new Line2D.Double(vect1.getX() + relativeVect1.getX() , vect1.getY() + relativeVect1.getY(), 
 			    vect2.getX() + relativeVect1.getX() , vect2.getY() + relativeVect2.getY());
-		
-		// TODO Auto-generated constructor stub
 	}
 	
 	void updateView(Graphics g) {
-		// TODO Auto-generated method stub
 		Graphics2D g2 = (Graphics2D) g;
 		
 		line2D.setLine(vect1.getX() + relativeVect1.getX() , vect1.getY() + relativeVect1.getY(), 
@@ -37,7 +34,6 @@ public class Line {
 //		g2.drawLine(vect1.getX() + relativeVect1.getX() , vect1.getY() + relativeVect1.getY(), 
 //				    vect2.getX() + relativeVect1.getX() , vect2.getY() + relativeVect2.getY());
 //		g2.setColor(color.black);
-
 	}
 
 

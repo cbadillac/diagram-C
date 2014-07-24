@@ -14,6 +14,18 @@ public class RightPanel extends JPanel {
 	 * Create the panel.
 	 * @param diagram 
 	 */
+
+    public RightPanel(){
+        super();
+        this.diagram = null;
+
+        this.elements = new ArrayList<NodeDCView>();
+        this.lines    = new ArrayList<Line>();
+
+        MouseListener mListen = new MouseListener(this);
+        addMouseListener(mListen);
+        addMouseMotionListener(mListen);
+    }
 	
 	public RightPanel(Diagram diagram) {
 		super();
@@ -22,8 +34,6 @@ public class RightPanel extends JPanel {
 		MouseListener mListen = new MouseListener(this);
 		addMouseListener(mListen);
 		addMouseMotionListener(mListen);
-		elements = diagram.getViewNodes();
-		lines = diagram.getLines();
 	}
 	
 	public NodeDCView isHere(double x, double y){
@@ -42,19 +52,23 @@ public class RightPanel extends JPanel {
 	public void paintComponent(Graphics g){
 		Graphics2D g2 = (Graphics2D) g;
 		super.paintComponent(g);
-
-        ArrayList<NodeDCView> elements = diagram.getViewNodes();
-        ArrayList<Line> lineElements = diagram.getLines();
         
         for (NodeDCView e:elements)
            e.updateView(g2);
         
-        for (Line e:lineElements)
+        for (Line e:lines)
         	e.updateView(g2);
 	}
+
+    public void addViewNodes(NodeDCView nd){
+        elements.add(nd);
+    }
 	
 	public Diagram getDiagram(){
-		return diagram;
-	}
+        return diagram;
+    }
+    public ArrayList<Line> getLines() {
+        return lines;
+    }
 
 }

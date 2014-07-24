@@ -18,22 +18,18 @@ public class VarSentence extends NodeDC {
 		super(id++);
 		view     = new VarSentenceView(this);
 		setVarName(new String());
-		setVarValue(new String()); 
-		// TODO Auto-generated constructor stub
+		setVarValue(new String());
 	}
 
 	
 	@Override
 	String toC() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	void updateView(Graphics g) {
-		// TODO Auto-generated method stub
 		view.updateView(g);
-
 	}
 	
 	

@@ -16,19 +16,17 @@ public class CText extends NodeDC {
 
 	@Override
 	String toC() {
-		// TODO Auto-generated method stub
+		// TODO CText fixed to C sentence
 		return null;
 	}
 
 	@Override
 	String getType() {
-		// TODO Auto-generated method stub
 		return typeOne;
 	}
 
 	@Override
 	void updateView(Graphics g) {
-		// TODO Auto-generated method stub
 		view.updateView(g);
 
 	}
