@@ -18,13 +18,12 @@ public class IfSentence extends NodeDC {
 		this.conditionText = new String();
 
         this.nextFalse = super.next;
-        this.nextTrue = this.nextFalse;
+        this.nextTrue  = this.nextFalse;
 	}
 
 	@Override
 	String toC() {
-        // TODO: if fixed C sentence.
-		return null;
+		return "if("+conditionText+")";
 	}
 	@Override
 	String getType() {
