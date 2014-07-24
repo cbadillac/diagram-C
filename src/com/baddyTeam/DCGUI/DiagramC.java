@@ -8,4 +8,5 @@ public class DiagramC {
 			mainGUI.setDefaultCloseOperation(DiagramC_GUI.EXIT_ON_CLOSE);
 		    mainGUI.setVisible(true);
 	}
+
 }
