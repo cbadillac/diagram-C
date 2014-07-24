@@ -16,8 +16,7 @@ public class CSentence extends NodeDC {
 
 	@Override
 	String toC() {
-		// TODO CText fixed to C sentence
-		return null;
+		return text;
 	}
 
 	@Override
