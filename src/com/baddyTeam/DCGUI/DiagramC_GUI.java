@@ -27,7 +27,7 @@ public class DiagramC_GUI extends JFrame {
         leftPanel.setLayout(null);
         leftPanel.add(label1);
 
-		this.rightPanel = new RightPanel();
+		this.rightPanel = new RightPanel(new Diagram());
 		this.rightPanel.setPreferredSize(new Dimension(100, 100));
 		
 		final JScrollPane scroll = new JScrollPane(this.rightPanel);
