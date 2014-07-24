@@ -17,8 +17,14 @@ public class Diagram implements Iterable<NodeDC>{
         return this.firstNode;
     }
 
-    public void createVarSentence(){}
-    public void createIfSentence(){}
-    public void createCSentence(){}
+    public static VarSentence createVarSentence(){
+        return new VarSentence();
+    }
+    public static IfSentence createIfSentence(){
+        return new IfSentence();
+    }
+    public static CSentence createCSentence(){
+        return new CSentence();
+    }
 
 }
