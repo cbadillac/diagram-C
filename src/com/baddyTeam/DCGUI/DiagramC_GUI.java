@@ -68,7 +68,7 @@ public class DiagramC_GUI extends JFrame {
         btnCCode.setBounds(10, 131, 79, 37);
 		btnCCode.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CText cText = new CText();
+				CSentence cText = new CSentence();
 				rightPanel.addViewNodes(cText.getView());
 				rightPanel.repaintView();
 			}
