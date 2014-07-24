@@ -34,9 +34,9 @@ public class MouseListener extends MouseAdapter {
         		VarSentence varSentence = (VarSentence)nodeView.getNode();
         		VarSentenceWindow frame = new VarSentenceWindow(varSentence);
 				frame.setVisible(true);    	
-			}else if (nodeView instanceof CTextView) {
-        		CText cText = (CText)nodeView.getNode();
-        		CTextWindow frame = new CTextWindow(cText);
+			}else if (nodeView instanceof CSentenceView) {
+        		CSentence cText = (CSentence)nodeView.getNode();
+        		CSentenceWindow frame = new CSentenceWindow(cText);
         		frame.setVisible(true);
 			}
         }
