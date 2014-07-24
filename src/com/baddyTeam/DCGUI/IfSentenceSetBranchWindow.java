@@ -57,19 +57,19 @@ public class IfSentenceSetBranchWindow extends JFrame {
 		Vector r2 = new Vector(nextNode.getView().getWIDTH()/2,0);
 
         if(option.equals("Current")) {
-            node.setCurrentNextNode(nextNode);
+            node.setNext(nextNode);
             Vector r1 = new Vector(node.getView().getWIDTH()/2, node.getView().getHEIGHT() );
             Line line = new Line(v1, v2, r1, r2);
             panel.getLines().add(line);
             panel.repaintView();
         }else if(option.equals("If")) {
-            node.setLeftNextNode(nextNode);
+            node.setNextFalse(nextNode);
             Vector r1 = new Vector(node.getView().getWIDTH(), node.getView().getHEIGHT()/2 );
             Line line = new Line(v1, v2, r1, r2);
             panel.getLines().add(line);
             panel.repaintView();
         }else if(option.equals("Else")) {
-            node.setRightNextNode(nextNode);
+            node.setNextTrue(nextNode);
             Vector r1 = new Vector(0, node.getView().getHEIGHT()/2 );
             Vector r3 = new Vector(nextNode.getView().getWIDTH()/2, 0);
             System.out.print(nextNode.getView().getWIDTH());
