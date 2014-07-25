@@ -33,13 +33,13 @@ public class DiagramC_GUI extends JFrame {
 		final JScrollPane scroll = new JScrollPane(this.rightPanel);
 
 		JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, scroll);
-        splitPane.setDividerLocation(100);
+        splitPane.setDividerLocation(200);
         getContentPane().add(splitPane);
 
         // TODO create buttons with a array of pre-set buttons (then iterate ...)
 		JButton btnIf = new JButton("If");
         btnIf.setIcon(new ImageIcon(DiagramC_GUI.class.getResource("/if_sentence2.png")));
-        btnIf.setBounds(10, 34, 79, 37);
+        btnIf.setBounds(10, 34, 100, 37);
 		btnIf.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				IfSentence ifSentence = Diagram.createIfSentence();
@@ -51,7 +51,7 @@ public class DiagramC_GUI extends JFrame {
 		
 		JButton btnVar = new JButton("Var");
 		btnVar.setIcon(new ImageIcon(DiagramC_GUI.class.getResource("/var_sentence.png")));
-        btnVar.setBounds(10, 82, 79, 37);
+        btnVar.setBounds(10, 82, 100, 37);
 		btnVar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VarSentence varSentence = Diagram.createVarSentence();
@@ -63,7 +63,7 @@ public class DiagramC_GUI extends JFrame {
 		
 		JButton btnCCode = new JButton("Code");
 		btnCCode.setIcon(new ImageIcon(DiagramC_GUI.class.getResource("/cText.png")));
-        btnCCode.setBounds(10, 131, 79, 37);
+        btnCCode.setBounds(10, 131, 100, 37);
 		btnCCode.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				CSentence cText = Diagram.createCSentence();
