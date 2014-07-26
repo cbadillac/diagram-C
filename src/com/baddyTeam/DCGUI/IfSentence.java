@@ -17,8 +17,8 @@ public class IfSentence extends NodeDC {
 		this.view = new IfSentenceView(this);
 		this.conditionText = new String();
 
-        this.nextFalse = super.next;
         this.nextTrue  = this.nextFalse;
+        this.nextFalse = super.next;
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class IfSentence extends NodeDC {
 	}
 	@Override
 	String getType() {
-		return typeThree;
+		return typeTwo;
 	}
 
     @Override
@@ -53,13 +53,13 @@ public class IfSentence extends NodeDC {
     public NodeDC getNextTrue() {
         return this.nextTrue;
     }
-    public void setNextFalse(NodeDC nextFalse) {
-        nextFalse.setNext(this.nextFalse);
-        this.nextFalse = nextFalse;
-    }
     public void setNextTrue(NodeDC nextTrue) {
         nextTrue.setNext(this.nextTrue);
         this.nextTrue = nextTrue;
+    }
+    public void setNextFalse(NodeDC nextFalse) {
+        nextFalse.setNext(this.nextFalse);
+        this.nextFalse = nextFalse;
     }
 
 }

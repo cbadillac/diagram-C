@@ -5,12 +5,12 @@ import java.awt.event.MouseEvent;
 
 
 public class MouseListener extends MouseAdapter {
-	
+    private static int LEFTBUTTON = 1;
+    private int rightClickCount   = 0;
 	private RightPanel panel;
-	private NodeDCView nodeView = null;
-	private static int LEFTBUTTON = 1;
-	private int rightClickCount = 0;
-	private NodeDCView nodeDCViewTemp =null;
+    private NodeDCView nodeViewOrigin = null; // Primer nodo clickeado
+	private NodeDCView nodeViewDest = null;   // Segundo nodo clickeado
+
 
 	public MouseListener(RightPanel panel) {
 		this.panel = panel;
@@ -18,67 +18,74 @@ public class MouseListener extends MouseAdapter {
 	
 	public void mouseMoved(MouseEvent e){
 		if(panel.isHere(e.getX(), e.getY()) != null){
-			nodeView = panel.isHere(e.getX(), e.getY());
+			nodeViewDest = panel.isHere(e.getX(), e.getY());
 		}
 		else
-			nodeView = null;
+			nodeViewDest = null;
 	}
 	
 	public void mousePressed( MouseEvent e ) {
-        if(nodeView != null && e.getClickCount() >= 2  && e.getButton() == LEFTBUTTON){
-        	if (nodeView instanceof IfSentenceView){
-        		IfSentence ifSentence  = (IfSentence)nodeView.getNode();
+        if(nodeViewDest == null){
+            return;
+        }
+
+        if(e.getClickCount() >= 2  && e.getButton() == LEFTBUTTON){
+            // this in a method ?
+        	if (nodeViewDest instanceof IfSentenceView){
+        		IfSentence ifSentence  = (IfSentence) nodeViewDest.getNode();
         		IfSentenceWindow frame = new IfSentenceWindow(ifSentence);
     			frame.setVisible(true);
-        	}else if (nodeView instanceof VarSentenceView) {
-        		VarSentence varSentence = (VarSentence)nodeView.getNode();
+        	}else if (nodeViewDest instanceof VarSentenceView) {
+        		VarSentence varSentence = (VarSentence) nodeViewDest.getNode();
         		VarSentenceWindow frame = new VarSentenceWindow(varSentence);
 				frame.setVisible(true);
-			}else if (nodeView instanceof CSentenceView) {
-        		CSentence cText = (CSentence)nodeView.getNode();
+			}else if (nodeViewDest instanceof CSentenceView) {
+        		CSentence cText = (CSentence) nodeViewDest.getNode();
         		CSentenceWindow frame = new CSentenceWindow(cText);
         		frame.setVisible(true);
 			}
         }
         
         if (e.getButton() == 3) {
+            // this in a method ?
         	rightClickCount++;
 
-			if (rightClickCount == 1 && nodeView != null){
-                nodeDCViewTemp = nodeView.clone();
-                System.out.print(nodeDCViewTemp + "\n");
-			} else if (rightClickCount == 2 && nodeView != null && nodeDCViewTemp.getNode() != nodeView.getNode() ) {
-				NodeDC nodeDCTemp = nodeDCViewTemp.getNode();
-				NodeDC actualNode = nodeView.getNode();
-				Vector v1 = nodeDCViewTemp.getVector();
-				Vector v2 = nodeView.getVector();
-				Vector r1 = new Vector(nodeDCViewTemp.getWIDTH()/2, nodeDCViewTemp.getHEIGHT() );
-				Vector r2 = new Vector(nodeView.getWIDTH()/2-1,0);
+			if (rightClickCount == 1){
+                this.nodeViewOrigin = nodeViewDest.clone();
+                //System.out.print(nodeDCViewDest + "\n");
+			} else if (rightClickCount == 2 && nodeViewOrigin.getNode() != nodeViewDest.getNode() ) {
+                NodeDC originNode = nodeViewOrigin.getNode();
+                NodeDC destNode   = nodeViewDest.getNode();
 
-                if (nodeDCTemp.getType() == NodeDC.typeOne) {
-                    nodeDCTemp.setNext(actualNode);
+				Vector v1 = nodeViewOrigin.getVector();
+				Vector v2 = nodeViewDest.getVector();
+				Vector r1 = new Vector(nodeViewOrigin.getWIDTH()/2, nodeViewOrigin.getHEIGHT() );
+				Vector r2 = new Vector(nodeViewDest.getWIDTH()/2-1,0);
+
+                if (originNode.getType() == NodeDC.typeOne && originNode.getNext() == null){
+                    originNode.setNext(destNode);
                     Line line = new Line(v1, v2, r1, r2);
                     panel.getLines().add(line);
                     panel.repaintView();
-                } else if (nodeDCTemp.getType() == NodeDC.typeTwo) {
-                    //TODO: create node typeTwo.
-				} else if (nodeDCTemp.getType() == NodeDC.typeThree){
-					IfSentenceSetBranchWindow win = new IfSentenceSetBranchWindow((IfSentence) nodeDCTemp, actualNode, panel); 
+                } else if (originNode.getType() == NodeDC.typeTwo){
+					IfSentenceSetBranchWindow win = new IfSentenceSetBranchWindow((IfSentence) originNode, destNode, panel);
 					win.setVisible(true);
-					System.out.print("added if node");
+					//System.out.print("added if node");
 				}
 
-				nodeDCViewTemp = null;
+				nodeViewOrigin = null;
 				rightClickCount = 0;
 			}else {
 				rightClickCount = 0;
 			}
 		}
+
+        //TODO: button to remove a node ! and lines too?
      }
 	
 	public void mouseDragged(MouseEvent e) {
-		if(nodeView != null ){
-			nodeView.dragTo(e.getX(), e.getY());
+		if(nodeViewDest != null ){
+			nodeViewDest.dragTo(e.getX(), e.getY());
 			panel.repaintView();
 		}
 	}

@@ -11,6 +11,9 @@ public class Diagram implements Iterable<NodeDC>{
 	public Diagram() {
 		this.firstNode = null;
 	}
+    public Diagram(NodeDC node) {
+        this.firstNode = node;
+    }
 
     @Override
     public NodeDC iterator(){

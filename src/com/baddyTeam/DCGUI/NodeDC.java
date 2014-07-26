@@ -11,7 +11,6 @@ public abstract  class NodeDC implements Iterator<NodeDC>{
 
 	public static String typeOne   = "typeOne";
 	public static String typeTwo   = "typeTwo";
-	public static String typeThree = "typeThree";
 	protected NodeDC next;
 	
 
@@ -36,7 +35,7 @@ public abstract  class NodeDC implements Iterator<NodeDC>{
         // Not removable from iteration ???
         throw new UnsupportedOperationException("remove() not allowed.");
     }
-			
+
 	abstract String toC();
 	abstract String getType();
 
@@ -44,10 +43,12 @@ public abstract  class NodeDC implements Iterator<NodeDC>{
 	abstract NodeDCView getView();
     abstract String getText();
 
-	public NodeDC getNode() {
-		return this;
+	public NodeDC getNext() {
+		return this.next;
 	}
 	public void setNext(NodeDC nextNode) {
+        if( nextNode != null)
+            nextNode.setNext(this.next);
 		this.next = nextNode;
 	}
 

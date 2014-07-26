@@ -24,6 +24,7 @@ public class IfSentenceSetBranchWindow extends JFrame {
 		this.panel = panel;
 		this.node = node;
 		this.nextNode = nextNode;
+
 		setTitle("Set Branch");
 		setBounds(100, 100, 317, 81);
 		contentPane = new JPanel();
@@ -36,7 +37,7 @@ public class IfSentenceSetBranchWindow extends JFrame {
 		contentPane.add(lblChooseTheBranch);
 		
 		final JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Current", "If", "Else"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"True", "False", "Continue"}));
 		comboBox.setBounds(86, 8, 109, 20);
 		contentPane.add(comboBox);
 		
@@ -56,28 +57,28 @@ public class IfSentenceSetBranchWindow extends JFrame {
 		Vector v2 = nextNode.getView().getVector();
 		Vector r2 = new Vector(nextNode.getView().getWIDTH()/2,0);
 
-        if(option.equals("Current")) {
+        if(option.equals("Continue")) {
             node.setNext(nextNode);
             Vector r1 = new Vector(node.getView().getWIDTH()/2, node.getView().getHEIGHT() );
             Line line = new Line(v1, v2, r1, r2);
             panel.getLines().add(line);
             panel.repaintView();
-        }else if(option.equals("If")) {
-            node.setNextFalse(nextNode);
+        }else if(option.equals("True") && node.getNextTrue() == null){
+            node.setNextTrue(nextNode);
             Vector r1 = new Vector(node.getView().getWIDTH(), node.getView().getHEIGHT()/2 );
             Line line = new Line(v1, v2, r1, r2);
             panel.getLines().add(line);
             panel.repaintView();
-        }else if(option.equals("Else")) {
-            node.setNextTrue(nextNode);
+        }else if(option.equals("False") && node.getNextFalse() == null){
+            node.setNextFalse(nextNode);
             Vector r1 = new Vector(0, node.getView().getHEIGHT()/2 );
             Vector r3 = new Vector(nextNode.getView().getWIDTH()/2, 0);
-            System.out.print(nextNode.getView().getWIDTH());
+            //System.out.println(nextNode.getView().getWIDTH());
             Line line = new Line(v1, v2, r1, r3);
             panel.getLines().add(line);
             panel.repaintView();
         }else{
-            System.out.print("ERROR: No se puede crear branch");
+            //System.out.println("ERROR: No se puede crear branch");
         }
 	}
 }
