@@ -11,12 +11,16 @@ public abstract  class NodeDC implements Iterator<NodeDC>{
 
 	public static String typeOne   = "typeOne";
 	public static String typeTwo   = "typeTwo";
+	public static String typeThree   = "typeThree";
+
 	protected NodeDC next;
+    protected boolean connected;
 	
 
 	protected NodeDC( int id){
-	    this.myId = id;
-        this.next = null;
+	    this.myId      = id;
+        this.next      = null;
+        this.connected = false;
     }
 	protected int getId() {
 	      return myId;
@@ -51,6 +55,13 @@ public abstract  class NodeDC implements Iterator<NodeDC>{
             nextNode.setNext(this.next);
 		this.next = nextNode;
 	}
+
+    public boolean isConnected(){
+        return connected;
+    }
+    public void connected(){
+        this.connected = true;
+    }
 
 }
 

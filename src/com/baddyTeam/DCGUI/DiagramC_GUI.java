@@ -27,8 +27,7 @@ public class DiagramC_GUI extends JFrame {
         leftPanel.setLayout(null);
         leftPanel.add(label1);
 
-		this.rightPanel = new RightPanel(new Diagram(new VarSentence()));
-
+		this.rightPanel = new RightPanel(new Diagram(new FirstNode()));
 		rightPanel.setPreferredSize(new Dimension(100, 100));
 		
 		final JScrollPane scroll = new JScrollPane(this.rightPanel);
@@ -92,6 +91,7 @@ public class DiagramC_GUI extends JFrame {
 		
 		JMenuItem mntmCreateCCode = new JMenuItem("Create C Code");
 		mntmCreateCCode.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        mntmCreateCCode.addActionListener(menuListener);
 		mnFile.add(mntmCreateCCode);
 		
 		JMenu mnHelp = new JMenu("Help");

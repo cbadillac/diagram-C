@@ -5,13 +5,13 @@ import java.util.ArrayList;
 
 public class Diagram implements Iterable<NodeDC>{
 
-    // TODO the first NodeDC node should be a function reference (main, ...)
-	private NodeDC firstNode;
+    // TODO create a first node type
+	private FirstNode firstNode;
 
 	public Diagram() {
 		this.firstNode = null;
 	}
-    public Diagram(NodeDC node) {
+    public Diagram(FirstNode node) {
         this.firstNode = node;
     }
 
@@ -28,6 +28,10 @@ public class Diagram implements Iterable<NodeDC>{
     }
     public static CSentence createCSentence(){
         return new CSentence();
+    }
+
+    public FirstNode getNode(){
+        return this.firstNode;
     }
 
 }

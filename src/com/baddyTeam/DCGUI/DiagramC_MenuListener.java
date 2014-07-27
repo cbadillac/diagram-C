@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 public class DiagramC_MenuListener implements ActionListener {
 	private DiagramC_GUI window;
 
-
 	public DiagramC_MenuListener(DiagramC_GUI window) {
 		this.window = window;
 	}
@@ -20,6 +19,7 @@ public class DiagramC_MenuListener implements ActionListener {
 	    System.out.print(text);
 	    
 	    if(text.equals("Exit") ){}
+        else if(text.equals("make")){}
 	}
 
 }
