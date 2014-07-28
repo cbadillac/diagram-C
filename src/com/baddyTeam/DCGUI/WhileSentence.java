@@ -19,8 +19,7 @@ public class WhileSentence extends NodeDC {
 
     @Override
     String toC() {
-        //TODO
-        return null;
+        return "while("+text+")";
     }
 
     @Override

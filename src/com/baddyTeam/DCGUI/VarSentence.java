@@ -25,7 +25,6 @@ public class VarSentence extends NodeDC {
 	}
     @Override
     String getType() {
-        // TODO Auto-generated method stub
         return NodeDC.typeOne;
     }
 

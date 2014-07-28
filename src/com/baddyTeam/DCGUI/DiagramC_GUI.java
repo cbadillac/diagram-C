@@ -36,7 +36,7 @@ public class DiagramC_GUI extends JFrame {
         splitPane.setDividerLocation(200);
         getContentPane().add(splitPane);
 
-        // TODO create buttons with a array of pre-set buttons (then iterate ...)
+
 		JButton btnIf = new JButton("If");
         btnIf.setIcon(new ImageIcon(DiagramC_GUI.class.getResource("/if_sentence2.png")));
         btnIf.setBounds(10, 34, 100, 37);
@@ -49,7 +49,7 @@ public class DiagramC_GUI extends JFrame {
 		});
 		leftPanel.add(btnIf);
 
-        // TODO create buttons with a array of pre-set buttons (then iterate ...)
+
         JButton btnWhile = new JButton("While");
         btnWhile.setIcon(new ImageIcon(DiagramC_GUI.class.getResource("/while_sentence.png")));
         btnWhile.setBounds(10, 180, 100, 37);
