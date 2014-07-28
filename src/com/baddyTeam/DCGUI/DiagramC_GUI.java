@@ -89,7 +89,7 @@ public class DiagramC_GUI extends JFrame {
 		mntmExit.addActionListener(menuListener);
         mnFile.add(mntmExit);
 		
-		JMenuItem mntmCreateCCode = new JMenuItem("Create C Code");
+		JMenuItem mntmCreateCCode = new JMenuItem("Make");
 		mntmCreateCCode.setFont(new Font("Tahoma", Font.PLAIN, 11));
         mntmCreateCCode.addActionListener(menuListener);
 		mnFile.add(mntmCreateCCode);

@@ -35,7 +35,7 @@ public class FirstNode extends NodeDC {
 
     @Override
     String toC() {
-        return "main()";
+        return "int main()";
     }
     @Override
     String getType() {

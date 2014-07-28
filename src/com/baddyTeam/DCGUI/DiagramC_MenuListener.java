@@ -19,7 +19,16 @@ public class DiagramC_MenuListener implements ActionListener {
 	    System.out.print(text);
 	    
 	    if(text.equals("Exit") ){}
-        else if(text.equals("make")){}
+        else if(text.equals("Make")){
+            Diagram diagram = window.rightPanel.getDiagram();
+            System.out.println("Start");
+            System.out.println(diagram.getNode().toC());
+            System.out.println(diagram.getNode().getNext().toC());
+            /*
+            for(NodeDC node: diagram){
+                System.out.println(node.toC());
+            }*/
+        }
 	}
 
 }
