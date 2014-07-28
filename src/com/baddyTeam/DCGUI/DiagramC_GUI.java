@@ -48,6 +48,19 @@ public class DiagramC_GUI extends JFrame {
 			}
 		});
 		leftPanel.add(btnIf);
+
+        // TODO create buttons with a array of pre-set buttons (then iterate ...)
+        JButton btnWhile = new JButton("While");
+        btnWhile.setIcon(new ImageIcon(DiagramC_GUI.class.getResource("/while_sentence.png")));
+        btnWhile.setBounds(10, 180, 100, 37);
+        btnWhile.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                WhileSentence whileSentence = Diagram.createWhileSentence();
+                rightPanel.addViewNodes(whileSentence.getView());
+                rightPanel.repaint();
+            }
+        });
+        leftPanel.add(btnWhile);
 		
 		JButton btnVar = new JButton("Var");
 		btnVar.setIcon(new ImageIcon(DiagramC_GUI.class.getResource("/var_sentence.png")));

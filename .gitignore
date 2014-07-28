@@ -3,11 +3,13 @@
 .gradle
 bin/
 tmp/
+.idea/
 *.tmp
 *.bak
 *.swp
 *.jar
 *.class
+*.iml
 *~.nib
 local.properties
 .settings/
