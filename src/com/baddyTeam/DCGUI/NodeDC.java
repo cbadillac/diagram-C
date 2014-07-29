@@ -1,8 +1,6 @@
 package com.baddyTeam.DCGUI;
 
-import javax.xml.soap.Node;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -63,6 +61,7 @@ public abstract class NodeDC implements Iterator<NodeDC>{
 	}
 	public void setNext(NodeDC nextNode) {
         if(nextNode == null) {
+            this.next = null;
             return;
         }
 
