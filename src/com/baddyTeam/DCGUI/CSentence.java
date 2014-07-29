@@ -15,16 +15,16 @@ public class CSentence extends NodeDC {
 	}
 
 	@Override
-	String toC() {
+	public String toC() {
 		return text;
 	}
 	@Override
-	String getType() {
+	public String getType() {
 		return typeOne;
 	}
 
 	@Override
-	void updateView(Graphics g) {
+	public void updateView(Graphics g) {
 		view.updateView(g);
 
 	}

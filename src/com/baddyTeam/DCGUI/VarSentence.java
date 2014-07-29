@@ -19,17 +19,17 @@ public class VarSentence extends NodeDC {
 	}
 	
 	@Override
-	String toC() {
+	public String toC() {
 		return (varType==null || varName==null || varValue==null)? "": varType+" "+varName+" = "+varValue+";";
 	}
     @Override
-    String getType() {
+    public String getType() {
         return NodeDC.typeOne;
     }
 
 
 	@Override
-	void updateView(Graphics g) {
+	public void updateView(Graphics g) {
 		view.updateView(g);
 	}
 	@Override

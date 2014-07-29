@@ -18,27 +18,27 @@ public class WhileSentence extends NodeDC {
     }
 
     @Override
-    String toC() {
+    public String toC() {
         return "while("+text+")";
     }
 
     @Override
-    String getType() {
+    public String getType() {
         return typeThree;
     }
 
     @Override
-    void updateView(Graphics g) {
+    public void updateView(Graphics g) {
         view.updateView(g);
     }
 
     @Override
-    NodeDCView getView() {
+    public NodeDCView getView() {
         return view;
     }
 
     @Override
-    String getText() {
+    public String getText() {
         return text;
     }
 

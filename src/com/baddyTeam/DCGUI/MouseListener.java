@@ -65,25 +65,39 @@ public class MouseListener extends MouseAdapter {
                 if(destNode.isConnected())  //only one connection, bucle blocks!!!
                     return;
 
-				Vector v1 = nodeViewOrigin.getVector();
-				Vector v2 = nodeViewDest.getVector();
-				Vector r1 = new Vector(nodeViewOrigin.getWIDTH()/2, nodeViewOrigin.getHEIGHT() );
-				Vector r2 = new Vector(nodeViewDest.getWIDTH()/2-1,0);
+				if(originNode.getType().equals(NodeDC.typeOne)
+                        && originNode.getNext() == null){
+                    originNode.setNext(destNode);
+                    destNode.connect();
 
-                if (originNode.getType() == NodeDC.typeOne && (originNode.getNext() == null || originNode.getNext() instanceof StringNode)){
-                    if(destNode instanceof IfSentence && !(((IfSentence)destNode).getNextContinue().getNext() == null)) {
-                        Iterator<NodeDC> it = originNode;
+                    Vector v1 = nodeViewOrigin.getVector();
+                    Vector v2 = nodeViewDest.getVector();
+                    Vector r1 = new Vector(nodeViewOrigin.getWIDTH()/2, nodeViewOrigin.getHEIGHT() );
+                    Vector r2 = new Vector(nodeViewDest.getWIDTH()/2-1,0);
 
-                        while(it.hasNext())
-                            it = it.next();
-                        ((StringNode)it).setNext(originNode.getNext());
-                    } else {
-                        originNode.setNext(destNode);
-                    }
                     Line line = new Line(v1, v2, r1, r2);
                     panel.getLines().add(line);
                     panel.repaintView();
-                    destNode.connect();
+
+                }else if(originNode.getType().equals(NodeDC.typeTwo)){
+                    IfSentenceSetBranchWindow win = new IfSentenceSetBranchWindow((IfSentence) originNode, destNode, panel);
+                    win.setVisible(true);
+                }else if(originNode.getType().equals(NodeDC.typeThree)) {
+                }
+                /*
+                if (originNode.getType() == NodeDC.typeOne
+                        && (originNode.getNext() == null || originNode.getNext() instanceof StringNode)){
+                    if(destNode.getType() == NodeDC.typeTwo) {
+                        Iterator<NodeDC> it = ((IfSentence)destNode).getNextContinue();
+
+                        while(it.hasNext())
+                            it = it.next();
+                        ((NodeDC)it).setNext(originNode.getNext());
+                        originNode.setNext(destNode);
+                    } else {
+                        originNode.setNext(destNode);
+                    }
+
                 } else if (originNode.getType() == NodeDC.typeTwo){
 					IfSentenceSetBranchWindow win = new IfSentenceSetBranchWindow((IfSentence) originNode, destNode, panel);
 					win.setVisible(true);
@@ -92,6 +106,7 @@ public class MouseListener extends MouseAdapter {
 				} else if (originNode.getType() == NodeDC.typeThree && (originNode.getNext() == null || originNode.getNext() instanceof StringNode)){
                     // TODO implement typeThree
                 }
+                */
 
 				nodeViewOrigin = null;
 				rightClickCount = 0;

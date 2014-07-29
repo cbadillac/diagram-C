@@ -17,25 +17,25 @@ public class FirstNode extends NodeDC {
 
 
     @Override
-    String toC() {
+    public String toC() {
         return "int main()";
     }
     @Override
-    String getType() {
+    public String getType() {
         return NodeDC.typeOne;
     }
 
     @Override
-    void updateView(Graphics g) {
+    public void updateView(Graphics g) {
         view.updateView(g);
     }
     @Override
-    NodeDCView getView() {
+    public NodeDCView getView() {
         return view;
     }
 
     @Override
-    String getText() {
+    public String getText() {
         return null;
     }
 

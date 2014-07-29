@@ -1,6 +1,8 @@
 package com.baddyTeam.DCGUI;
 
+import javax.xml.soap.Node;
 import java.awt.*;
+import java.util.Iterator;
 
 
 public class IfSentence extends NodeDC {
@@ -26,11 +28,11 @@ public class IfSentence extends NodeDC {
 	}
 
 	@Override
-	String toC() {
+	public String toC() {
 		return "if( "+conditionText+" )";
 	}
 	@Override
-	String getType() {
+	public String getType() {
 		return typeTwo;
 	}
 
@@ -50,24 +52,43 @@ public class IfSentence extends NodeDC {
         this.conditionText = txt;
     }
 
-    public NodeDC getNextFalse() {
-        return this.nextFalse;
+    @Override
+    public NodeDC getNext(){
+        return (super.next==null&&nextFalse==null&&nextContinue==null)? null: super.next;
     }
     public NodeDC getNextTrue() {
         return this.next;
     }
-    public NodeDC getNextContinue(){
-        return  this.nextContinue;
+    public NodeDC getNextFalse() {
+        return this.nextFalse;
     }
-    public void setNextTrue(NodeDC nextTrue) {
-        this.next.setNext(nextTrue);
+    public NodeDC getNextContinue(){
+        return this.nextContinue;
+    }
+
+    @Override
+    public void setNext(NodeDC nextTrue) {
+        if(nextTrue == null) {
+            return;
+        }
+
+        NodeDC deepNode = nextTrue.getEnd();
+        deepNode.setNextSimple(this.nextFalse);
+        this.next.setNextSimple(nextTrue);
     }
     public void setNextFalse(NodeDC nextFalse) {
         this.nextFalse.setNext(nextFalse);
-        //this.nextFalse.setNext(nextFalse);
     }
     public void setNextContinue(NodeDC nextContinue){
-        this.nextContinue = nextContinue;
+        this.nextContinue.setNext(nextContinue);
+    }
+
+    public NodeDC getEnd(){
+        Iterator<NodeDC> it = this.nextContinue;
+        while(it.hasNext())
+            it = it.next();
+
+        return (NodeDC)it;
     }
 
 }

@@ -28,12 +28,7 @@ public class DiagramC_MenuListener implements ActionListener {
 
             while(it.hasNext()){
                 it = it.next();
-                if(((NodeDC)it).getType().compareTo(NodeDC.typeOne) ==0)
-                    System.out.println(((NodeDC)it).toC());
-                else if(((NodeDC)it).getType().compareTo(NodeDC.typeTwo) ==0)
-                    System.out.println(((NodeDC)it).toC());
-                else if(((NodeDC)it).getType().compareTo(NodeDC.typeThree) ==0)
-                    System.out.println(((NodeDC)it).toC());
+                System.out.println(((NodeDC)it).toC());
             }
             System.out.println("return 0;");
             System.out.println("}");

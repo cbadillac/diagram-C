@@ -45,22 +45,32 @@ public abstract class NodeDC implements Iterator<NodeDC>{
         throw new UnsupportedOperationException("remove() not allowed.");
     }
 
-	abstract String toC();
-	abstract String getType();
+	public abstract String toC();
+	public abstract String getType();
 
-	abstract void updateView(Graphics g);
-	abstract NodeDCView getView();
-    abstract String getText();
+	public abstract void updateView(Graphics g);
+	public abstract NodeDCView getView();
+    public abstract String getText();
 
 	public NodeDC getNext() {
-		return this.next;
+		return (this.next instanceof StringNode)? null: this.next;
 	}
 	public void setNext(NodeDC nextNode) {
-        if(nextNode == null) return;
-        if( this.next != null)
-            nextNode.setNext(this.next);
+        if(nextNode == null) {
+            return;
+        }
+
+        NodeDC deepNode = nextNode.getEnd();
+        deepNode.setNext(this.next);
 		this.next = nextNode;
 	}
+    public void setNextSimple(NodeDC nextNode){
+        this.next = nextNode;
+    }
+
+    public NodeDC getEnd(){
+        return this;
+    }
 
     public boolean isConnected(){
         return connected;
