@@ -24,17 +24,7 @@ public class DiagramC_MenuListener implements ActionListener {
             Diagram diagram = window.rightPanel.getDiagram();
             System.out.println("Start C generation\n");
 
-            System.out.println("#include <stdio.h>\n");
-            System.out.println(diagram.getNode().toC()+"{");
-            Iterator<NodeDC> it = diagram.getNode();
-
-            while(it.hasNext()){
-                it = it.next();
-                System.out.println(((NodeDC)it).toC());
-            }
-
-            System.out.println("return 0;");
-            System.out.println("}");
+            diagram.Run();
 
             }else if (text.equals("Delete Node")) {
 			if (window.getRightPanel().getSelectedNodeView() != null) {

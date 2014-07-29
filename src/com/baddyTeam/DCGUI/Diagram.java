@@ -37,4 +37,18 @@ public class Diagram implements Iterable<NodeDC>{
         return this.firstNode;
     }
 
+    public void Run(){
+        System.out.println("#include <stdio.h>\n");
+        System.out.println(firstNode.toC()+"{");
+
+        Iterator<NodeDC> it = firstNode;
+        while(it.hasNext()){
+            it = it.next();
+            System.out.println(((NodeDC)it).toC());
+        }
+
+        System.out.println("return 0;");
+        System.out.println("}");
+    }
+
 }
