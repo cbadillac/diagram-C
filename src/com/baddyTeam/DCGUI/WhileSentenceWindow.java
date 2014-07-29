@@ -21,9 +21,9 @@ public class WhileSentenceWindow extends JFrame {
     private JTextField textField;
     private WhileSentence whileSentence;
 
-  public WhileSentenceWindow(WhileSentence whileSentence){
+  public WhileSentenceWindow(WhileSentence node){
       setTitle("While Sentence");
-      this.whileSentence = whileSentence;
+      this.whileSentence = node;
       setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
       setBounds(100, 100, 452, 79);
       contentPane = new JPanel();
@@ -39,7 +39,7 @@ public class WhileSentenceWindow extends JFrame {
       contentPane.add(textField);
       textField.setColumns(10);
       if (textField.getText() != null){
-          textField.setText(whileSentence.getText());
+          textField.setText(node.getText());
       }
 
       JButton btnNewButton = new JButton("OK");
