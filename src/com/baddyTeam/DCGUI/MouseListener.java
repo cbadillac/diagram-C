@@ -27,7 +27,14 @@ public class MouseListener extends MouseAdapter {
 	
 	public void mousePressed( MouseEvent e ) {
         if(nodeViewDest == null){
+            panel.setSelectedNode(null);
             return;
+        }
+
+        if ( e.getClickCount() == 1 && e.getButton() == LEFTBUTTON
+                && nodeViewDest != null){
+            panel.setSelectedNode(nodeViewDest);
+            System.out.print("one click pressed\n");
         }
 
         if(e.getClickCount() >= 2  && e.getButton() == LEFTBUTTON){
@@ -56,7 +63,7 @@ public class MouseListener extends MouseAdapter {
         	rightClickCount++;
 
 			if (rightClickCount == 1){
-                this.nodeViewOrigin = nodeViewDest.clone();
+                this.nodeViewOrigin = nodeViewDest;
                 //System.out.print(nodeDCViewDest + "\n");
 			} else if (rightClickCount == 2 && nodeViewOrigin.getNode() != nodeViewDest.getNode() ) {
                 NodeDC originNode = nodeViewOrigin.getNode();
@@ -70,8 +77,7 @@ public class MouseListener extends MouseAdapter {
 				Vector r1 = new Vector(nodeViewOrigin.getWIDTH()/2, nodeViewOrigin.getHEIGHT() );
 				Vector r2 = new Vector(nodeViewDest.getWIDTH()/2-1,0);
 
-                if (originNode.getType() == NodeDC.typeOne && (originNode.getNext() == null || originNode.getNext() instanceof StringNode)){
-                    /*
+                if (originNode.getType() == NodeDC.typeOne && (originNode.getNext() == null)){
                     if(destNode instanceof IfSentence && !(((IfSentence)destNode).getNextContinue().getNext() == null)) {
                         Iterator<NodeDC> it = originNode;
 
@@ -80,10 +86,8 @@ public class MouseListener extends MouseAdapter {
                         ((StringNode)it).setNext(originNode.getNext());
                     } else {
                         originNode.setNext(destNode);
-                    }*/
-                    originNode.setNext(destNode);
-
-                    Line line = new Line(v1, v2, r1, r2);
+                    }
+                    Line line = new Line(v1, v2, r1, r2, nodeViewOrigin, nodeViewDest);
                     panel.getLines().add(line);
                     panel.repaintView();
                     destNode.connect();
