@@ -63,6 +63,7 @@ public abstract class NodeDC implements Iterator<NodeDC>{
 	}
 	public void setNext(NodeDC nextNode) {
         if(nextNode == null) {
+            this.next = null;
             return;
         }
 
@@ -83,6 +84,9 @@ public abstract class NodeDC implements Iterator<NodeDC>{
     }
     public void connect(){
         this.connected = true;
+    }
+    public void disconnect(){
+        this.connected = false;
     }
     public boolean isIgnore() {
         return ignore;
