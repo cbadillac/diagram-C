@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Iterator;
 
 
 public class IfSentenceSetBranchWindow extends JFrame {
@@ -58,25 +59,40 @@ public class IfSentenceSetBranchWindow extends JFrame {
 		Vector r2 = new Vector(nextNode.getView().getWIDTH()/2,0);
 
         if(option.equals("Continue")) {
-            node.setNext(nextNode);
+            node.setNextContinue(nextNode);
             Vector r1 = new Vector(node.getView().getWIDTH()/2, node.getView().getHEIGHT() );
             Line line = new Line(v1, v2, r1, r2);
             panel.getLines().add(line);
             panel.repaintView();
-        }else if(option.equals("True") && node.getNextTrue() == null){
-            node.setNextTrue(nextNode);
-            Vector r1 = new Vector(node.getView().getWIDTH(), node.getView().getHEIGHT()/2 );
+        }else if(option.equals("True") && node.getNextTrue().getNext() instanceof StringNode){
+            if(nextNode.getType().compareTo(NodeDC.typeTwo) ==0) {
+                Iterator<NodeDC> it = ((IfSentence) nextNode).getNextContinue();
+
+                while (it.hasNext())
+                    it = it.next();
+
+                ((NodeDC) it).setNext(node.getNextContinue());
+                node.getNextTrue().setNext(nextNode);
+            } else if(nextNode.getType().compareTo(NodeDC.typeThree) ==0){
+                //TODO while add :S
+            } else {
+                node.setNextTrue(nextNode);
+            }
+            Vector r1 = new Vector(node.getView().getWIDTH(), node.getView().getHEIGHT() / 2);
             Line line = new Line(v1, v2, r1, r2);
             panel.getLines().add(line);
             panel.repaintView();
-        }else if(option.equals("False") && node.getNextFalse() == null){
-            node.setNextFalse(nextNode);
-            Vector r1 = new Vector(0, node.getView().getHEIGHT()/2 );
-            Vector r3 = new Vector(nextNode.getView().getWIDTH()/2, 0);
-            //System.out.println(nextNode.getView().getWIDTH());
-            Line line = new Line(v1, v2, r1, r3);
-            panel.getLines().add(line);
-            panel.repaintView();
+        }else if(option.equals("False") && node.getNextFalse().getNext() instanceof StringNode){
+            if(node.getNextTrue() instanceof IfSentence) {
+            } else {
+                node.setNextFalse(nextNode);
+                Vector r1 = new Vector(0, node.getView().getHEIGHT() / 2);
+                Vector r3 = new Vector(nextNode.getView().getWIDTH() / 2, 0);
+                //System.out.println(nextNode.getView().getWIDTH());
+                Line line = new Line(v1, v2, r1, r3);
+                panel.getLines().add(line);
+                panel.repaintView();
+            }
         }else{
             //System.out.println("ERROR: No se puede crear branch");
         }

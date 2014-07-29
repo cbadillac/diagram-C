@@ -4,14 +4,15 @@ import javax.xml.soap.Node;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 
-public abstract  class NodeDC implements Iterator<NodeDC>{
+public abstract class NodeDC implements Iterator<NodeDC>{
     private final int myId; /* to identify each element within its category */
 
 	public static String typeOne   = "typeOne";
 	public static String typeTwo   = "typeTwo";
-	public static String typeThree   = "typeThree";
+	public static String typeThree = "typeThree";
 
 
 	protected NodeDC next;
@@ -23,17 +24,21 @@ public abstract  class NodeDC implements Iterator<NodeDC>{
 	
 
 	protected NodeDC( int id){
-	    this.myId      = id;
-        this.next      = null;
+	    this.myId         = id;
+        this.next         = null;
         this.connected = false;
         this.ignore = false;
     }
+
 	protected int getId() {
 	      return myId;
 	   }
 
     @Override
     public NodeDC next (){
+        if (this.next == null)
+            throw new NoSuchElementException();
+
         return this.next;
     }
     @Override
@@ -57,7 +62,8 @@ public abstract  class NodeDC implements Iterator<NodeDC>{
 		return this.next;
 	}
 	public void setNext(NodeDC nextNode) {
-        if( nextNode != null)
+        if(nextNode == null) return;
+        if( this.next != null)
             nextNode.setNext(this.next);
 		this.next = nextNode;
 	}
@@ -65,7 +71,7 @@ public abstract  class NodeDC implements Iterator<NodeDC>{
     public boolean isConnected(){
         return connected;
     }
-    public void connected(){
+    public void connect(){
         this.connected = true;
     }
     public boolean isIgnore() {

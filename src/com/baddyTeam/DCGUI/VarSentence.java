@@ -8,12 +8,11 @@ public class VarSentence extends NodeDC {
 	private static int id = 0;
 	
 	private VarSentenceView view;
-
-    private String varType = null;
-	private String varName = null;
+    private String varType  = null;
+	private String varName  = null;
 	private String varValue = null;
 
-	
+
 	public VarSentence() {
 		super(id++);
 		view = new VarSentenceView(this);
@@ -21,7 +20,7 @@ public class VarSentence extends NodeDC {
 	
 	@Override
 	String toC() {
-		return (varType==null || varName==null || varValue==null)? null: varType+" "+varName+" = "+varValue+";";
+		return (varType==null || varName==null || varValue==null)? "": varType+" "+varName+" = "+varValue+";";
 	}
     @Override
     String getType() {

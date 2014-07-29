@@ -9,29 +9,12 @@ public class FirstNode extends NodeDC {
     private static int id = 0;
     private FirstNodeView view;
 
-    protected FirstNode() {
+    public FirstNode() {
         super(id++);
         this.view = new FirstNodeView(this);
+        super.connected = true;
     }
 
-    @Override
-    protected int getId() {
-        return super.getId();
-    }
-
-
-    @Override
-    public NodeDC next() {
-        return super.next();
-    }
-    @Override
-    public boolean hasNext() {
-        return super.hasNext();
-    }
-    @Override
-    public void remove() {
-        super.remove();
-    }
 
     @Override
     String toC() {
@@ -39,7 +22,7 @@ public class FirstNode extends NodeDC {
     }
     @Override
     String getType() {
-        return NodeDC.typeThree;
+        return NodeDC.typeOne;
     }
 
     @Override
@@ -56,12 +39,4 @@ public class FirstNode extends NodeDC {
         return null;
     }
 
-    @Override
-    public NodeDC getNext() {
-        return super.getNext();
-    }
-    @Override
-    public void setNext(NodeDC nextNode) {
-        super.setNext(nextNode);
-    }
 }

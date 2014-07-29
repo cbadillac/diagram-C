@@ -1,11 +1,10 @@
 package com.baddyTeam.DCGUI;
 
-import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class Diagram implements Iterable<NodeDC>{
 
-    // TODO create a first node type
 	private FirstNode firstNode;
 
 	public Diagram() {
@@ -16,7 +15,7 @@ public class Diagram implements Iterable<NodeDC>{
     }
 
     @Override
-    public NodeDC iterator(){
+    public Iterator<NodeDC> iterator(){
         return this.firstNode;
     }
 
