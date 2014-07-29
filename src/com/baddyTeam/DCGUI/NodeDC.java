@@ -13,14 +13,20 @@ public abstract  class NodeDC implements Iterator<NodeDC>{
 	public static String typeTwo   = "typeTwo";
 	public static String typeThree   = "typeThree";
 
+
 	protected NodeDC next;
     protected boolean connected;
+
+
+
+    private boolean ignore;
 	
 
 	protected NodeDC( int id){
 	    this.myId      = id;
         this.next      = null;
         this.connected = false;
+        this.ignore = false;
     }
 	protected int getId() {
 	      return myId;
@@ -62,6 +68,12 @@ public abstract  class NodeDC implements Iterator<NodeDC>{
     public void connected(){
         this.connected = true;
     }
+    public boolean isIgnore() {
+        return ignore;
+    }
 
+    public void setIgnore(boolean ignore) {
+        this.ignore = ignore;
+    }
 }
 

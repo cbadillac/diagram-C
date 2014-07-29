@@ -28,6 +28,10 @@ public class DiagramC_MenuListener implements ActionListener {
             for(NodeDC node: diagram){
                 System.out.println(node.toC());
             }*/
+        }else if (text.equals("Delete Node")){
+            if(window.getRightPanel().getSelectedNodeView() != null){
+                window.getRightPanel().deleteNodeDCView(window.getRightPanel().getSelectedNodeView());
+            }
         }
 	}
 

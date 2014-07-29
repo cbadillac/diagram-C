@@ -7,7 +7,9 @@ import java.awt.event.ActionListener;
 
 
 public class DiagramC_GUI extends JFrame {
-	RightPanel rightPanel;
+
+
+    RightPanel rightPanel;
     LeftPanel leftPanel;
 	
 	public DiagramC_GUI() {
@@ -98,10 +100,15 @@ public class DiagramC_GUI extends JFrame {
 		menuBar.add(mnFile);
 		
 		JMenuItem mntmExit = new JMenuItem("Exit");
-		mntmExit.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		mntmExit.addActionListener(menuListener);
+        mntmExit.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        mntmExit.addActionListener(menuListener);
         mnFile.add(mntmExit);
-		
+
+        JMenuItem mntmDelete = new JMenuItem("Delete Node");
+        mntmDelete.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        mntmDelete.addActionListener(menuListener);
+        mnFile.add(mntmDelete);
+
 		JMenuItem mntmCreateCCode = new JMenuItem("Make");
 		mntmCreateCCode.setFont(new Font("Tahoma", Font.PLAIN, 11));
         mntmCreateCCode.addActionListener(menuListener);
@@ -116,5 +123,9 @@ public class DiagramC_GUI extends JFrame {
 		mntmAbout.addActionListener(menuListener);
 		mnHelp.add(mntmAbout);
 	}
+
+    public RightPanel getRightPanel() {
+        return rightPanel;
+    }
 
 }

@@ -49,8 +49,15 @@ public class IfSentenceView extends NodeDCView {
 	public IfSentence getNode(){
 		return node;
 	}
-	
-	@Override
+
+    @Override
+    void deleteNodeDC() {
+        node.setIgnore(true);
+        this.getVector().setIgnore(true);
+        this.node = null;
+    }
+
+    @Override
 	boolean imHere(double x, double y) {
 		if(x<rectangle.getMaxX() && x>rectangle.getMinX() && y>rectangle.getMinY() && y<rectangle.getMaxY())
 			return true;

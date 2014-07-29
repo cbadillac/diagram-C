@@ -46,4 +46,11 @@ public class VarSentenceView extends NodeDCView {
 		return node;
 	}
 
+    @Override
+    void deleteNodeDC() {
+        node.setIgnore(true);
+        getVector().setIgnore(true);
+        this.node = null;
+    }
+
 }

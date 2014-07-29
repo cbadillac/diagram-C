@@ -26,10 +26,17 @@ public class MouseListener extends MouseAdapter {
 	
 	public void mousePressed( MouseEvent e ) {
         if(nodeViewDest == null){
+            panel.setSelectedNode(null);
             return;
         }
 
-        if(e.getClickCount() >= 2  && e.getButton() == LEFTBUTTON){
+        if ( e.getClickCount() == 1 && e.getButton() == LEFTBUTTON
+                && nodeViewDest != null){
+            panel.setSelectedNode(nodeViewDest);
+            System.out.print("one click pressed\n");
+        }
+
+            if(e.getClickCount() >= 2  && e.getButton() == LEFTBUTTON){
             // this in a method ?
         	if (nodeViewDest instanceof IfSentenceView){
         		IfSentence ifSentence  = (IfSentence) nodeViewDest.getNode();
