@@ -44,7 +44,11 @@ public class MouseListener extends MouseAdapter {
         		CSentence cText = (CSentence) nodeViewDest.getNode();
         		CSentenceWindow frame = new CSentenceWindow(cText);
         		frame.setVisible(true);
-			}
+			}else if (nodeViewDest instanceof WhileSentenceView){
+                WhileSentence whileSentence = (WhileSentence) nodeViewDest.getNode();
+                WhileSentenceWindow frame = new WhileSentenceWindow(whileSentence);
+                frame.setVisible(true);
+            }
         }
         
         if (e.getButton() == 3) {

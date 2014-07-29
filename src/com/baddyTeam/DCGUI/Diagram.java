@@ -28,6 +28,10 @@ public class Diagram implements Iterable<NodeDC>{
     public static CSentence createCSentence(){
         return new CSentence();
     }
+    public static WhileSentence createWhileSentence(){
+        return new WhileSentence();
+    }
+
 
     public FirstNode getNode(){
         return this.firstNode;
