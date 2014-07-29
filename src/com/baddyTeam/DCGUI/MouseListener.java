@@ -78,24 +78,18 @@ public class MouseListener extends MouseAdapter {
 				Vector r2 = new Vector(nodeViewDest.getWIDTH()/2-1,0);
 
                 if (originNode.getType() == NodeDC.typeOne && (originNode.getNext() == null)){
-                    if(destNode instanceof IfSentence && !(((IfSentence)destNode).getNextContinue().getNext() == null)) {
-                        Iterator<NodeDC> it = originNode;
+                    originNode.setNext(destNode);
 
-                        while(it.hasNext())
-                            it = it.next();
-                        ((StringNode)it).setNext(originNode.getNext());
-                    } else {
-                        originNode.setNext(destNode);
-                    }
                     Line line = new Line(v1, v2, r1, r2, nodeViewOrigin, nodeViewDest);
                     panel.getLines().add(line);
                     panel.repaintView();
+
                     destNode.connect();
                 } else if (originNode.getType() == NodeDC.typeTwo){
 					IfSentenceSetBranchWindow win = new IfSentenceSetBranchWindow((IfSentence) originNode, destNode, panel);
 					win.setVisible(true);
+
                     destNode.connect();
-					//System.out.print("added if node");
 				} else if (originNode.getType() == NodeDC.typeThree && (originNode.getNext() == null || originNode.getNext() instanceof StringNode)){
                     WhileSentenceSetBranchWindow win = new WhileSentenceSetBranchWindow((WhileSentence) originNode, destNode, panel);
                     win.setVisible(true);

@@ -15,7 +15,6 @@ public class CSentenceView extends NodeDCView {
 
     CSentence node;
 
-
     public CSentenceView(CSentence node) {
         super(50, 50, WIDTH, HEIGHT);
         this.node = node;
@@ -50,9 +49,8 @@ public class CSentenceView extends NodeDCView {
     @Override
     void deleteNodeDC() {
         node.setIgnore(true);
-        this.getVector().setIgnore(true);
+        getVector().setIgnore(true);
         this.node = null;
     }
-
 
 }

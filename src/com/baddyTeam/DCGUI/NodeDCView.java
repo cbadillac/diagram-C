@@ -5,14 +5,9 @@ import java.awt.*;
 
 public abstract class NodeDCView implements Cloneable {
 
-
-
-
     private Vector vector;
 	private int WIDTH;
 	private int HEIGHT;
-
-
 
     private Line line;
 
@@ -66,11 +61,6 @@ public abstract class NodeDCView implements Cloneable {
 		return this.HEIGHT;
 	}
 
-    public void dragTo(int x, int y){
-        vector.setX(x - WIDTH/2);
-        vector.setY(y - HEIGHT/2);
-    }
-
     public Vector getVector(){
         return this.vector;
     }
@@ -81,9 +71,12 @@ public abstract class NodeDCView implements Cloneable {
     public Line getLine() {
         return line;
     }
-
     public void setLine(Line line) {
         this.line = line;
     }
 
+    public void dragTo(int x, int y){
+        vector.setX(x - WIDTH/2);
+        vector.setY(y - HEIGHT/2);
+    }
 }
