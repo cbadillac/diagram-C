@@ -4,9 +4,14 @@ public class Vector {
 	private int x;
 	private int y;
 
+
+
+    private boolean ignore;
+
 	public Vector(int x, int y) {
 		this.setX(x);
 		this.setY(y);
+        this.ignore = false;
 	}
 
 	public int getX() {
@@ -24,6 +29,14 @@ public class Vector {
 	public void setY(int y) {
 		this.y = y;
 	}
+
+    public boolean isIgnore() {
+        return ignore;
+    }
+
+    public void setIgnore(boolean ignore) {
+        this.ignore = ignore;
+    }
 	
 	public Vector Add(Vector vAdd){
 		

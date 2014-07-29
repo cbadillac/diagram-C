@@ -4,10 +4,17 @@ import java.awt.*;
 
 
 public abstract class NodeDCView implements Cloneable {
-	
-	private Vector vector;
+
+
+
+
+    private Vector vector;
 	private int WIDTH;
 	private int HEIGHT;
+
+
+
+    private Line line;
 
     public NodeDCView(int x, int y,int WIDTH,int HEIGHT){
         vector = new Vector(x, y);
@@ -30,6 +37,7 @@ public abstract class NodeDCView implements Cloneable {
 
 	abstract boolean imHere(double x, double y);
 	abstract NodeDC getNode();
+    abstract void deleteNodeDC();
 
 	
 	public int getXPosition(){
@@ -64,6 +72,18 @@ public abstract class NodeDCView implements Cloneable {
     }
 
     public Vector getVector(){
-        return vector;
+        return this.vector;
     }
+    public void setVector(Vector vector) {
+        this.vector = vector;
+    }
+
+    public Line getLine() {
+        return line;
+    }
+
+    public void setLine(Line line) {
+        this.line = line;
+    }
+
 }

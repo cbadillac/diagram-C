@@ -46,4 +46,12 @@ public class WhileSentenceView extends NodeDCView {
     NodeDC getNode() {
         return node;
     }
+
+    @Override
+    void deleteNodeDC() {
+
+        this.getVector().setIgnore(true);
+        node.setIgnore(true);
+        this.node = null;
+    }
 }

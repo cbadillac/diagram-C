@@ -2,6 +2,8 @@ package com.baddyTeam.DCGUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 
 public class RightPanel extends JPanel {
@@ -10,10 +12,10 @@ public class RightPanel extends JPanel {
 	private ArrayList<NodeDCView> elements;
 	private ArrayList<Line> lines;
 
-	/**
-	 * Create the panel.
-	 * @param diagram
-	 */
+
+
+    private NodeDCView selectedNode;
+
 
     public RightPanel(){
         super();
@@ -23,11 +25,13 @@ public class RightPanel extends JPanel {
         this.elements = new ArrayList<NodeDCView>();
         this.lines    = new ArrayList<Line>();
 
+
         addViewNodes(new FirstNodeView(diagram.getNode()));
 
         MouseListener mListen = new MouseListener(this);
         addMouseListener(mListen);
         addMouseMotionListener(mListen);
+
     }
 	public RightPanel(Diagram diagram) {
 		super();
@@ -35,11 +39,13 @@ public class RightPanel extends JPanel {
         this.lines    = new ArrayList<Line>();
         this.diagram  = diagram;
 
+
         addViewNodes(new FirstNodeView(diagram.getNode()));
 
 		MouseListener mListen = new MouseListener(this);
 		addMouseListener(mListen);
 		addMouseMotionListener(mListen);
+
 	}
 
 	public NodeDCView isHere(double x, double y){
@@ -77,6 +83,19 @@ public class RightPanel extends JPanel {
 
     public void setDiagram(Diagram diagram){
         this.diagram = diagram;
+    }
+
+    public NodeDCView getSelectedNodeView() {
+        return selectedNode;
+    }
+    public void setSelectedNode(NodeDCView selectedNode) {
+        this.selectedNode = selectedNode;
+    }
+
+    public void deleteNodeDCView(NodeDCView nodeView){
+        nodeView.deleteNodeDC();
+        elements.remove(nodeView);
+        repaintView();
     }
 
 }
