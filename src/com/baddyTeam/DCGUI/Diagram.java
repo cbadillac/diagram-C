@@ -1,5 +1,6 @@
 package com.baddyTeam.DCGUI;
 
+import java.io.PrintWriter;
 import java.util.Iterator;
 
 
@@ -38,17 +39,26 @@ public class Diagram implements Iterable<NodeDC>{
     }
 
     public void Run(){
-        System.out.println("#include <stdio.h>\n");
-        System.out.println(firstNode.toC()+"{");
+        try{
+            PrintWriter writer = new PrintWriter("main.c", "UTF-8");
 
-        Iterator<NodeDC> it = firstNode;
-        while(it.hasNext()){
-            it = it.next();
-            System.out.println(((NodeDC)it).toC());
+            writer.println("#include <stdio.h>\n");
+            writer.println(firstNode.toC()+"{");
+
+            Iterator<NodeDC> it = firstNode;
+            while(it.hasNext()){
+                it = it.next();
+                writer.println(((NodeDC)it).toC());
+            }
+
+            writer.println("return 0;");
+            writer.println("}");
+
+            writer.close();
+        }catch (Exception e) {
+            //...
         }
 
-        System.out.println("return 0;");
-        System.out.println("}");
     }
 
 }
