@@ -14,11 +14,10 @@ public class IfSentenceView extends NodeDCView {
 	private Rectangle2D rectangle;
 	private static int HEIGHT    = 50;
 	private static int WIDTH     = 50;
-	IfSentence node;
+
 	
 	public IfSentenceView(IfSentence node) {
-		super(50, 50, WIDTH, HEIGHT);		
-		this.node = node;		
+		super(50, 50, WIDTH, HEIGHT, node);
 		rectangle = new Double(getXPosition(), getYPosition(), HEIGHT, WIDTH);
 	}
 	
@@ -46,16 +45,10 @@ public class IfSentenceView extends NodeDCView {
         }
 	}
 	
-	public IfSentence getNode(){
+	public NodeDC getNode(){
 		return node;
 	}
 
-    @Override
-    void deleteNodeDC() {
-        node.setIgnore(true);
-        this.getVector().setIgnore(true);
-        this.node = null;
-    }
 
     @Override
 	boolean imHere(double x, double y) {

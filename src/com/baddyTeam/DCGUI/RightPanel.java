@@ -94,6 +94,12 @@ public class RightPanel extends JPanel {
 
     public void deleteNodeDCView(NodeDCView nodeView){
         nodeView.deleteNodeDC();
+
+        for(Line l: lines){
+         
+        }
+
+
         elements.remove(nodeView);
         repaintView();
     }

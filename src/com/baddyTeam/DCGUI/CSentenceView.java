@@ -13,12 +13,10 @@ public class CSentenceView extends NodeDCView {
     private static int HEIGHT = 100;
     private static int WIDTH  = 70;
 
-    CSentence node;
 
 
     public CSentenceView(CSentence node) {
-        super(50, 50, WIDTH, HEIGHT);
-        this.node = node;
+        super(50, 50, WIDTH, HEIGHT, node);
     }
 
     @Override
@@ -47,12 +45,7 @@ public class CSentenceView extends NodeDCView {
 		return node;
 	}
 
-    @Override
-    void deleteNodeDC() {
-        node.setIgnore(true);
-        this.getVector().setIgnore(true);
-        this.node = null;
-    }
+
 
 
 }

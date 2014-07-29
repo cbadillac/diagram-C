@@ -10,13 +10,11 @@ public class VarSentenceView extends NodeDCView {
 		
 	private Color color  = Color.GREEN;
 	private Rectangle2D rectangle;
-	private VarSentence node;
 	private static int HEIGHT    = 50;
 	private static int WIDTH     = 80;
 
 	public VarSentenceView(VarSentence node) {
-		super(50, 50, WIDTH, HEIGHT);
-		this.node = node;
+		super(50, 50, WIDTH, HEIGHT, node);
 		rectangle = new Rectangle2D.Double(getXPosition(), getYPosition(), HEIGHT, WIDTH);
 	}
 
@@ -42,15 +40,9 @@ public class VarSentenceView extends NodeDCView {
 			return false;
 	}
 	
-	public VarSentence getNode(){
-		return node;
+	public NodeDC getNode(){
+		return this.node;
 	}
 
-    @Override
-    void deleteNodeDC() {
-        node.setIgnore(true);
-        getVector().setIgnore(true);
-        this.node = null;
-    }
 
 }

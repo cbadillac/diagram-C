@@ -11,12 +11,14 @@ public abstract class NodeDCView implements Cloneable {
     private Vector vector;
 	private int WIDTH;
 	private int HEIGHT;
+    NodeDC node;
 
 
 
     private Line line;
 
-    public NodeDCView(int x, int y,int WIDTH,int HEIGHT){
+    public NodeDCView(int x, int y,int WIDTH,int HEIGHT, NodeDC node){
+        this.node = node;
         vector = new Vector(x, y);
         this.HEIGHT = HEIGHT;
         this.WIDTH = WIDTH;
@@ -37,7 +39,7 @@ public abstract class NodeDCView implements Cloneable {
 
 	abstract boolean imHere(double x, double y);
 	abstract NodeDC getNode();
-    abstract void deleteNodeDC();
+
 
 	
 	public int getXPosition(){
@@ -84,6 +86,11 @@ public abstract class NodeDCView implements Cloneable {
 
     public void setLine(Line line) {
         this.line = line;
+    }
+
+    void deleteNodeDC() {
+        node.setIgnore(true);
+        this.node = null;
     }
 
 }
