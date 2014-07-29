@@ -56,9 +56,6 @@ public class IfSentence extends NodeDC {
     public NodeDC getNext(){
         return (super.next==null&&nextFalse==null&&nextContinue==null)? null: super.next;
     }
-    public NodeDC getNextTrue() {
-        return this.next;
-    }
     public NodeDC getNextFalse() {
         return this.nextFalse;
     }
@@ -69,6 +66,7 @@ public class IfSentence extends NodeDC {
     @Override
     public void setNext(NodeDC nextTrue) {
         if(nextTrue == null) {
+            this.next.setNextSimple(this.nextFalse);
             return;
         }
 
