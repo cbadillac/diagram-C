@@ -37,7 +37,11 @@ public class DiagramC_MenuListener implements ActionListener {
             }
             System.out.println("return 0;");
             System.out.println("}");
-        }
-	}
+            }else if (text.equals("Delete Node")) {
+			if (window.getRightPanel().getSelectedNodeView() != null) {
+				window.getRightPanel().deleteNodeDCView(window.getRightPanel().getSelectedNodeView());
 
+			}
+		}
+    }
 }
