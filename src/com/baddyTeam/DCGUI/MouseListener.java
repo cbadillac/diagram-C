@@ -97,7 +97,9 @@ public class MouseListener extends MouseAdapter {
                     destNode.connect();
 					//System.out.print("added if node");
 				} else if (originNode.getType() == NodeDC.typeThree && (originNode.getNext() == null || originNode.getNext() instanceof StringNode)){
-                    // TODO implement typeThree
+                    WhileSentenceSetBranchWindow win = new WhileSentenceSetBranchWindow((WhileSentence) originNode, destNode, panel);
+                    win.setVisible(true);
+                    destNode.connect();
                 }
 
 				nodeViewOrigin = null;
