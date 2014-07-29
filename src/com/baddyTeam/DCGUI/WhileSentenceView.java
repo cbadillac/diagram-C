@@ -9,14 +9,13 @@ import java.awt.geom.Ellipse2D;
 public class WhileSentenceView extends NodeDCView {
     private Color color = Color.YELLOW;
     private Ellipse2D ellipse;
-    private WhileSentence node;
     private static int HEIGHT  = 50;
     private static int WIDTH   = 50;
     private static int RAD     = 50;
 
     public WhileSentenceView(WhileSentence node){
-        super(50, 50, WIDTH,HEIGHT);
-        this.node = node;
+        super(50, 50, WIDTH,HEIGHT, node);
+
         ellipse = new Ellipse2D.Double(getXPosition(), getYPosition(), HEIGHT, WIDTH);
     }
 
@@ -47,11 +46,4 @@ public class WhileSentenceView extends NodeDCView {
         return node;
     }
 
-    @Override
-    void deleteNodeDC() {
-
-        this.getVector().setIgnore(true);
-        node.setIgnore(true);
-        this.node = null;
-    }
 }
