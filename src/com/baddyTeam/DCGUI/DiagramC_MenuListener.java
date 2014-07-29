@@ -3,6 +3,7 @@ package com.baddyTeam.DCGUI;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Iterator;
 
 
 public class DiagramC_MenuListener implements ActionListener {
@@ -16,18 +17,26 @@ public class DiagramC_MenuListener implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		JMenuItem menuItem = (JMenuItem)(event.getSource());
 	    String text = menuItem.getText();
-	    System.out.print(text);
+	    System.out.println(text);
 	    
-	    if(text.equals("Exit") ){}
+	    if(text.equals("Exit")){}
         else if(text.equals("Make")){
             Diagram diagram = window.rightPanel.getDiagram();
-            System.out.println("Start");
-            System.out.println(diagram.getNode().toC());
-            System.out.println(diagram.getNode().getNext().toC());
-            /*
-            for(NodeDC node: diagram){
-                System.out.println(node.toC());
-            }*/
+            System.out.println("Start C generation\n");
+            System.out.println(diagram.getNode().toC()+"{");
+            Iterator<NodeDC> it = diagram.getNode();
+
+            while(it.hasNext()){
+                it = it.next();
+                if(((NodeDC)it).getType().compareTo(NodeDC.typeOne) ==0)
+                    System.out.println(((NodeDC)it).toC());
+                else if(((NodeDC)it).getType().compareTo(NodeDC.typeTwo) ==0)
+                    System.out.println(((NodeDC)it).toC());
+                else if(((NodeDC)it).getType().compareTo(NodeDC.typeThree) ==0)
+                    System.out.println(((NodeDC)it).toC());
+            }
+            System.out.println("return 0;");
+            System.out.println("}");
         }
 	}
 

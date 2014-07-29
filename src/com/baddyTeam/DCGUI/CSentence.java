@@ -18,7 +18,6 @@ public class CSentence extends NodeDC {
 	String toC() {
 		return text;
 	}
-
 	@Override
 	String getType() {
 		return typeOne;
@@ -33,7 +32,6 @@ public class CSentence extends NodeDC {
 	public CSentenceView getView() {
 		return view;
 	}
-
 	public String getText() {
 		return text;
 	}

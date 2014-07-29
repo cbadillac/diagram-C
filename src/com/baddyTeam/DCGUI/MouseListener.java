@@ -2,6 +2,7 @@ package com.baddyTeam.DCGUI;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Iterator;
 
 
 public class MouseListener extends MouseAdapter {
@@ -65,19 +66,28 @@ public class MouseListener extends MouseAdapter {
 				Vector r1 = new Vector(nodeViewOrigin.getWIDTH()/2, nodeViewOrigin.getHEIGHT() );
 				Vector r2 = new Vector(nodeViewDest.getWIDTH()/2-1,0);
 
-                if (originNode.getType() == NodeDC.typeOne && originNode.getNext() == null
-                        || originNode.getType() == NodeDC.typeThree && originNode.getNext() == null){
-                    originNode.setNext(destNode);
+                if (originNode.getType() == NodeDC.typeOne && (originNode.getNext() == null || originNode.getNext() instanceof StringNode)){
+                    if(destNode instanceof IfSentence && !(((IfSentence)destNode).getNextContinue().getNext() == null)) {
+                        Iterator<NodeDC> it = originNode;
+
+                        while(it.hasNext())
+                            it = it.next();
+                        ((StringNode)it).setNext(originNode.getNext());
+                    } else {
+                        originNode.setNext(destNode);
+                    }
                     Line line = new Line(v1, v2, r1, r2);
                     panel.getLines().add(line);
                     panel.repaintView();
-                    destNode.connected();
+                    destNode.connect();
                 } else if (originNode.getType() == NodeDC.typeTwo){
 					IfSentenceSetBranchWindow win = new IfSentenceSetBranchWindow((IfSentence) originNode, destNode, panel);
 					win.setVisible(true);
-                    destNode.connected();
+                    destNode.connect();
 					//System.out.print("added if node");
-				}
+				} else if (originNode.getType() == NodeDC.typeThree && (originNode.getNext() == null || originNode.getNext() instanceof StringNode)){
+                    // TODO implement typeThree
+                }
 
 				nodeViewOrigin = null;
 				rightClickCount = 0;
