@@ -27,10 +27,8 @@ public class DiagramC_MenuListener implements ActionListener {
             diagram.Run();
 
             }else if (text.equals("Delete Node")) {
-			if (window.getRightPanel().getSelectedNodeView() != null) {
+			if (window.getRightPanel().getSelectedNodeView() != null)
 				window.getRightPanel().deleteNodeDCView(window.getRightPanel().getSelectedNodeView());
-
-			}
 		}
     }
 }

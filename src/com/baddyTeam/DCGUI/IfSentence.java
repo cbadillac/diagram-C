@@ -75,6 +75,11 @@ public class IfSentence extends NodeDC {
         this.next.setNextSimple(nextTrue);
     }
     public void setNextFalse(NodeDC nextFalse) {
+        if(nextFalse == null) {
+            this.nextFalse = nextContinue;
+            return;
+        }
+
         this.nextFalse.setNext(nextFalse);
     }
     public void setNextContinue(NodeDC nextContinue){
