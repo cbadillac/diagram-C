@@ -86,6 +86,7 @@ public abstract class NodeDC implements Iterator<NodeDC>{
     public void disconnect(){
         this.connected = false;
     }
+
     public boolean isIgnore() {
         return ignore;
     }
