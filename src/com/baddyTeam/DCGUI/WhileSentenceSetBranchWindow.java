@@ -72,7 +72,7 @@ public class WhileSentenceSetBranchWindow extends JFrame {
         Vector v2 = nextNode.getView().getVector();
         Vector r2 = new Vector(nextNode.getView().getWIDTH()/2,0);
 
-        Line line = new Line(v1, v2, r1, r2,node.getView(), nextNode.getView());
+        Line line = new Line(v1, v2, r1, r2,node.getView(), nextNode.getView(), option);
         panel.getLines().add(line);
         panel.repaintView();
 	}

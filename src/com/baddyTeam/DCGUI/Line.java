@@ -12,10 +12,17 @@ public class Line {
 	private Line2D line2D;
     private NodeDCView onObject;
     private NodeDCView underObject;
-	
+    public static String nextTrue = "True";
+    public static String nextContinue = "Continue";
+    public static String nextFalse = "False";
+
+
+
+    private String originType;
 	private Color color;
 	
-	public Line(Vector v1, Vector v2, Vector rV1, Vector rV2, NodeDCView onObject, NodeDCView underObject) {
+	public Line(Vector v1, Vector v2, Vector rV1, Vector rV2, NodeDCView onObject, NodeDCView underObject, String originType) {
+        this.originType = new String(originType);
 		this.onObject = onObject;
         this.underObject = underObject;
         this.vect1         = v1;
@@ -52,10 +59,20 @@ public class Line {
         }
 
 
+
 //		g2.drawLine(vect1.getX() + relativeVect1.getX() , vect1.getY() + relativeVect1.getY(), 
 //				    vect2.getX() + relativeVect1.getX() , vect2.getY() + relativeVect2.getY());
 //		g2.setColor(color.black);
 	}
 
+    public NodeDCView getAboveNodeView(){
+        return this.onObject;
+    }
 
+    public NodeDCView getBelowNodeView(){
+        return this.underObject;
+    }
+    public String getOriginType() {
+        return originType;
+    }
 }

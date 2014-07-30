@@ -87,7 +87,7 @@ public class MouseListener extends MouseAdapter {
                     } else {
                         originNode.setNext(destNode);
                     }
-                    Line line = new Line(v1, v2, r1, r2, nodeViewOrigin, nodeViewDest);
+                    Line line = new Line(v1, v2, r1, r2, nodeViewOrigin, nodeViewDest, Line.nextContinue);
                     panel.getLines().add(line);
                     panel.repaintView();
                     destNode.connect();

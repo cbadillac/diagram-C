@@ -94,13 +94,37 @@ public class RightPanel extends JPanel {
 
     public void deleteNodeDCView(NodeDCView nodeView){
         nodeView.deleteNodeDC();
+        ArrayList<Line> toeraseLines = new ArrayList<Line>();
 
         for(Line l: lines){
-         
+            if(l.getAboveNodeView() == nodeView || l.getBelowNodeView() == nodeView ){
+                if (l.getAboveNodeView() == nodeView){
+                    l.getBelowNodeView().getNode().disconnect();
+                }else if (l.getBelowNodeView() == nodeView){
+                    if (l.getAboveNodeView().getNode().getType() == NodeDC.typeOne){
+                        l.getAboveNodeView().getNode().setNext(null);
+                    }else if (l.getAboveNodeView().getNode().getType() == NodeDC.typeTwo){
+                        IfSentence ifNode =(IfSentence) l.getAboveNodeView().getNode();
+                        if (l.getOriginType() == Line.nextTrue){
+                            ifNode.getNext().setNext(null);
+                        }else if(l.getOriginType() == Line.nextFalse){
+                            ifNode.getNextFalse().setNext(null);
+                        }else if (l.getOriginType() == Line.nextContinue){
+                            ifNode.getNext().setNextSimple(null);
+                        }
+                        ifNode.getNext().setNext(null);
+                    }
+
+                }
+                toeraseLines.add(l);
+            }
+
         }
-
-
+        for(Line l: toeraseLines){
+            lines.remove(l);
+        }
         elements.remove(nodeView);
+        nodeView = null;
         repaintView();
     }
 
